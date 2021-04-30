@@ -51,7 +51,7 @@ function Navbar() {
     <nav className="navbar navbar-expand navbar-dark bg-primary">
       <div className="container">
         <Link className="navbar-brand" to="/">
-          React NoteCards
+          Trailify
         </Link>
         <NavLinks />
       </div>
