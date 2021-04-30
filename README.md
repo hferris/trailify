@@ -44,7 +44,7 @@ Hanna:
 
 !![Alt text](/./client/imgs/wireframe2.png?raw=true "Screenshot")
 
-![Alt text](/./client/imgs/wireframe2.png?raw=true "Screenshot")
+![Alt text](/./client/imgs/wireframe3.png?raw=true "Screenshot")
 
 ## Features
 
