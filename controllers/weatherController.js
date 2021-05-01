@@ -4,6 +4,7 @@ const db = require("../models");
 module.exports = {
   findAll: function (req, res) {
     db.Weather.find(req.query)
+    // depends on the value the api object supplies
       .sort({ title })
       .then((dbModel) => res.json(dbModel))
       .catch((err) => res.status(422).json(err));
