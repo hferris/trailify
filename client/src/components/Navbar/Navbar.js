@@ -27,8 +27,8 @@ function NavLinks() {
   const { isLoggedIn, logout } = useAuth();
   const links = [];
   if (isLoggedIn) {
-    links.push({ text: "Practice", to: "/practice" });
-    links.push({ text: "CreateQuestions", to: "createQuestions" });
+    links.push({ text: "Home", to: "/" });
+    links.push({ text: "Favorites", to: "createQuestions" });
     links.push({ text: "Profile", to: "/profile" });
     links.push({ text: "Logout", onClick: () => logout() });
   } else {
