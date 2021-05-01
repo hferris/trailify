@@ -11,6 +11,7 @@ import Home from "./pages/Home";
 import Practice from "./pages/Practice";
 import CreateQuestions from "./pages/CreateQuestions";
 import Navbar from "./components/Navbar";
+import trailApi from "./utils/auth/trailAPI/trailAPI";
 
 function App() {
   return (
