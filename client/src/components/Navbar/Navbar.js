@@ -28,8 +28,8 @@ function NavLinks() {
   const links = [];
   if (isLoggedIn) {
     links.push({ text: "Home", to: "/" });
-    links.push({ text: "Favorites", to: "createQuestions" });
-    links.push({ text: "Profile", to: "/profile" });
+    links.push({ text: "Dashboard", to: "/dashboard" });
+    links.push({ text: "Favorites", to: "/favorites" });
     links.push({ text: "Logout", onClick: () => logout() });
   } else {
     links.push({ text: "Signup", to: "/signup" });
