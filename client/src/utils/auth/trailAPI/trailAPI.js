@@ -3,7 +3,7 @@ import API_KEYS  from '../../../api.json';
 console.log(API_KEYS.api_key);
 
 export default {
-  // Gets all titles or whatever the object supplies
+  // Gets all titles or whatever the object supplies be suer to call argument
   getTrail: function (title) {
     return axios.get(`https://trailapi-trailapi.p.rapidapi.com/trails/map/%7Bid%7D/gpx/`, {
         headers: {
@@ -14,11 +14,11 @@ export default {
     });
   },
   // Saves a post to the database
-  saveBook: function (saveBook) {
-    return axios.post("/api/books", saveBook);
+  saveTrail: function (saveTrail) {
+    return axios.post("/api/trails", saveTrail);
   },
   // Deletes the post with the given id
-  deleteBook: function (id) {
-    return axios.delete("/api/books/" + id);
+  deleteTrail: function (id) {
+    return axios.delete("/api/trails/" + id);
   },
 };
