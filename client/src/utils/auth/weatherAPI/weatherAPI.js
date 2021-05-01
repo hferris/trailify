@@ -1,6 +1,6 @@
 import axios from "axios";
 import API_KEYS  from '../../../api.json';
-console.log(API_KEYS.weather_api_key);
+console.log(API_KEYS.api_key);
 
 export default {
     // Gets weather based on city 

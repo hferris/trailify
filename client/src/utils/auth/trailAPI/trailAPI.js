@@ -1,9 +1,9 @@
 import axios from "axios";
 import API_KEYS  from '../../../api.json';
-console.log(API_KEYS.api_key);
+console.log(API_KEYS.trail_api_key);
 
 export default {
-  // Gets all titles or whatever the object supplies be suer to call argument
+  // Gets all titles or whatever the object supplies - be sure to call argument
   getTrail: function (title) {
     return axios.get(`https://trailapi-trailapi.p.rapidapi.com/trails/map/%7Bid%7D/gpx/`, {
         headers: {
