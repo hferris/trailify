@@ -8,6 +8,6 @@ router
   .post(trailController.create);
 
 // Matches with "/api/posts/:id"
-router.route("/:id").delete(trailController.remove);
+// router.route("/:id").delete(trailController.remove);
 
 module.exports = router;

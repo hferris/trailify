@@ -1,13 +1,16 @@
 import axios from "axios";
 import API_KEYS  from '../../../api.json';
-console.log(API_KEYS.trail_api_key);
+
+// const unirest = require("unirest");
+
+// const req = unirest("GET", "https://trailapi-trailapi.p.rapidapi.com/trails/map/%7Bid%7D/gpx/");
 
 export default {
   // Gets all titles or whatever the object supplies - be sure to call argument
   getTrail: function (title) {
     return axios.get(`https://trailapi-trailapi.p.rapidapi.com/trails/map/%7Bid%7D/gpx/`, {
         headers: {
-            "x-rapidapi-key": "7845d0a035mshd26495f4b71edb8p1a0b12jsn879adf482804",
+            "x-rapidapi-key": API_KEYS.trail_api_key,
             "x-rapidapi-host": "trailapi-trailapi.p.rapidapi.com",
             "useQueryString": true
         }

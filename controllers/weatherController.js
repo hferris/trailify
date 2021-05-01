@@ -1,7 +1,7 @@
 const db = require("../models");
 
 module.exports = {
-    renderHTML = (req, res) => {
+    renderHTML:  (req, res) => {
         db.Weather.find(req.query)
         .sort ({temp})
         .then((dbModel) => res.json(dbModel))
