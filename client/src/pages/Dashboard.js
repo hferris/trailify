@@ -9,6 +9,7 @@ function Dashboard(props) {
   const [trails, setTrails] = useState([]);
   const [weather, setWeather] = useState([]);
   const [originalTrails, setOriginalTrails] = useState([]);
+  const [city, setCity] = useState("");
   const { user } = useAuth();
 
   useEffect(() => {
@@ -18,36 +19,37 @@ function Dashboard(props) {
     });
   }, []);
 
-  const handleInputChange = useCallback(
-    (event) => {
-      event.preventDefault();
-      console.log(event.target);
-      console.log(event.target.value);
-
-      const updatedTrails = originalTrails.filter((trail) => {
-        if (trail.name.indexOf(event.target.value) !== -1) {
-          return true;
-        }
-        return false;
-      });
-      if (updatedTrails.length === 0)
-        alert(
-          "No trail with that name is currently on the provided list. Please clear your search and try again."
-        );
-      setTrails([...updatedTrails]);
-    },
-    [originalTrails]
-  );
-
-  const viewTrails = trails.map((hike) => {
-    return <p>{hike}</p>;
-  });
   useEffect(() => {
     weather.getWeather().then(({ data }) => {
       console.log("weather data:", data);
       setWeather(data.results);
     });
   }, []);
+
+  const handleInputChange = useCallback(
+    (event) => {
+      event.preventDefault();
+      console.log(event.target);
+      console.log(event.target.value);
+
+      const currentCity = city.filter((area) => {
+        if (area.name.indexOf(event.target.value) !== -1) {
+          return true;
+        }
+        return false;
+      });
+      if (currentCity.length === 0)
+        alert(
+          "No city with that name is available. Please clear your search and try again."
+        );
+      setCity([...currentCity]);
+    },
+    [city]
+  );
+
+  // const viewTrails = trails.map((hike) => {
+  //   return <p>{hike}</p>;
+  // });
 
   return (
     <div>
@@ -73,3 +75,5 @@ function Dashboard(props) {
 export default Dashboard;
 // the search trails input will be used for both the trails and the weather api.
 //
+
+//  const updatedTrails is a separate input window from original search/city
