@@ -3,7 +3,8 @@ import API from "./../utils/API";
 import { Link } from "react-router-dom";
 import { useAuth } from "../utils/auth";
 import trail from "../utils/auth/trailAPI/trailAPI";
-import weather from "../utils/auth/weatherAPI/weatherAPI";
+// import weather from "../utils/auth/weatherAPI/weatherAPI";
+// breaks if weather is imported
 
 function Dashboard(props) {
   const [trails, setTrails] = useState([]);
@@ -73,7 +74,7 @@ function Dashboard(props) {
 }
 
 export default Dashboard;
-// the search trails input will be used for both the trails and the weather api.
+// the search trails input will be used for both the trails and the weather api. The goal is to bring in the current weather specific to the area AND a list of available trails for that area and display on Dashboard.
 //
 
-//  const updatedTrails is a separate input window from original search/city
+//  const updatedTrails (for example) is a separate input window from original search/city
