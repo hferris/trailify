@@ -2,7 +2,7 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
 // framework of a model from book hw - need info from api object to complete correctly
-const postSchema = new Schema({
+const trailSchema = new Schema({
   name: { type: String, required: true },
   location: { type: String, required: true },
   // length: { type: Number },
@@ -10,7 +10,7 @@ const postSchema = new Schema({
   // link: { type: String, required: true },
 });
 
-const Post = mongoose.model("Post", postSchema);
+const Trail = mongoose.model("Trail", trailSchema);
 
 module.exports = Trail;
 

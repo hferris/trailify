@@ -3,7 +3,7 @@ import API from "./../utils/API";
 import { Link } from "react-router-dom";
 import { useAuth } from "../utils/auth";
 import trail from "../utils/auth/trailAPI/trailAPI";
-// import weather from "../utils/auth/weatherAPI/weatherAPI";
+import weather from "../utils/auth/weatherAPI/weatherAPI";
 
 function Dashboard(props) {
   const [trails, setTrails] = useState([]);
@@ -32,7 +32,7 @@ function Dashboard(props) {
       });
       if (updatedTrails.length === 0)
         alert(
-          "No trail with that name is currently on the list. Please clear your search and try again."
+          "No trail with that name is currently on the provided list. Please clear your search and try again."
         );
       setTrails([...updatedTrails]);
     },
@@ -42,12 +42,12 @@ function Dashboard(props) {
   const viewTrails = trails.map((hike) => {
     return <p>{hike}</p>;
   });
-  //   useEffect(() => {
-  //     weather.getWeather().then(({ data }) => {
-  //       console.log("weather data:", data);
-  //       setWeather(data.results);
-  //     });
-  //   }, []);
+  useEffect(() => {
+    weather.getWeather().then(({ data }) => {
+      console.log("weather data:", data);
+      setWeather(data.results);
+    });
+  }, []);
 
   return (
     <div>
