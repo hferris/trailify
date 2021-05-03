@@ -12,8 +12,8 @@ Heroku link here...
 
 # User Story:
 As a user:
-I want to be able to login in to see all the trails
-I want to be able to see the weather on the trails
+I want to be able to login in to see all the trails,
+I want to be able to see the weather on the trails and 
 I want to be able to rate the trails I have taken.
 
 # Description
