@@ -3,14 +3,13 @@ import API from "./../utils/API";
 import { Link } from "react-router-dom";
 import { useAuth } from "../utils/auth";
 import trail from "../utils/auth/trailAPI/trailAPI";
-// import weather from "../utils/auth/weatherAPI/weatherAPI";
-// breaks if weather is imported
+import { api_key } from "../api.json";
 
 function Dashboard(props) {
   const [trails, setTrails] = useState([]);
-  const [weather, setWeather] = useState([]);
+  const [currentWeather, setCurrentWeather] = useState([]);
   const [originalTrails, setOriginalTrails] = useState([]);
-  const [city, setCity] = useState("");
+  const [city, setCity] = useState([]);
   const { user } = useAuth();
 
   useEffect(() => {
@@ -20,33 +19,30 @@ function Dashboard(props) {
     });
   }, []);
 
-  // useEffect(() => {
-  //   weather.getWeather().then(({ data }) => {
-  //     console.log("weather data:", data);
-  //     setWeather(data.results);
-  //   });
-  // }, []);
+  useEffect(() => {
+    const weatherURL = `http://api.openweathermap.org/data/2.5/forecast?zip=11102&units=imperial&APPID=${api_key}`;
+    fetch(weatherURL)
+      .then((res) => res.json())
+      .then((data) => console.log("Weather data:", data.list));
+  }, []);
 
-  const handleInputChange = useCallback(
-    (event) => {
-      event.preventDefault();
-      console.log(event.target);
-      console.log(event.target.value);
+  const handleInputChange = useCallback((event) => {
+    event.preventDefault();
+    console.log(event.target);
+    console.log(event.target.value);
 
-      const currentCity = city.filter((area) => {
-        if (area.name.indexOf(event.target.value) !== -1) {
-          return true;
-        }
-        return false;
-      });
-      if (currentCity.length === 0)
-        alert(
-          "No city with that name is available. Please clear your search and try again."
-        );
-      setCity([...currentCity]);
-    },
-    [city]
-  );
+    const currentCity = city.filter((area) => {
+      if (area.name.indexOf(event.target.value) !== -1) {
+        return true;
+      }
+      return false;
+    });
+    if (currentCity.length === 0)
+      alert(
+        "No city with that name is available. Please clear your search and try again."
+      );
+    setCity([...currentCity]);
+  });
 
   // const viewTrails = trails.map((hike) => {
   //   return <p>{hike}</p>;
@@ -55,10 +51,6 @@ function Dashboard(props) {
   return (
     <div>
       <input
-        onChange={(event) => {
-          console.log(event.target.value);
-          props.handleInputChange(event);
-        }}
         value={props.search}
         name="text"
         className="form-control me-2"
@@ -66,8 +58,15 @@ function Dashboard(props) {
         placeholder="Search City Here"
         aria-label="Search"
       />
-      <button className="btn btn-outline-success" type="submit">
-        Clear Search
+      <button
+        className="btn btn-outline-success"
+        type="submit"
+        onClick={(event) => {
+          console.log(event.target.value);
+          handleInputChange(event);
+        }}
+      >
+        Submit
       </button>
     </div>
   );

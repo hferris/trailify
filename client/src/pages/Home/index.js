@@ -15,6 +15,7 @@ function Home() {
       <div className="App-header">
         
         <h2>Welcome to Trailify</h2>
+        
       </div>
       <p className="App-intro">
         <button
