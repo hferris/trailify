@@ -5,7 +5,7 @@ import { Route, BrowserRouter as Router, Switch } from "react-router-dom";
 import { AuthProvider } from "./utils/auth";
 import ProtectedRoute from "./components/ProtectedRoute";
 import Login from "./pages/Login";
-import Profile from "./pages/Profile";
+// import Profile from "./pages/Profile";
 import Signup from "./pages/Signup";
 import Home from "./pages/Home";
 import Practice from "./pages/Practice";
@@ -30,9 +30,7 @@ function App() {
             <Route exact path="/signup">
               <Signup />
             </Route>
-            <ProtectedRoute exact path="/profile">
-              <Profile />
-            </ProtectedRoute>
+
             <ProtectedRoute exact path="/Favorites">
               <Favorites />
             </ProtectedRoute>
