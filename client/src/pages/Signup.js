@@ -1,14 +1,13 @@
 import React, { useState } from "react";
 import { Link, Redirect, useHistory } from "react-router-dom";
 import API from "./../utils/API";
-import {useAuth} from "../utils/auth";
-
+import { useAuth } from "../utils/auth";
 
 function Signup() {
   const [formState, setFormState] = useState({
     username: "",
     email: "",
-    password: ""
+    password: "",
   });
 
   const { isLoggedIn } = useAuth();
@@ -19,22 +18,22 @@ function Signup() {
     return <Redirect to="/" />;
   }
 
-  const handleFormSubmit = event => {
+  const handleFormSubmit = (event) => {
     event.preventDefault();
     API.signUpUser(formState.username, formState.email, formState.password)
-      .then(res => {
+      .then((res) => {
         // once the user has signed up
         // send them to the login page
         history.replace("/login");
       })
-      .catch(err => alert(err));
+      .catch((err) => alert(err));
   };
 
-  const handleChange = event => {
+  const handleChange = (event) => {
     const { name, value } = event.target;
     setFormState({
       ...formState,
-      [name]: value
+      [name]: value,
     });
   };
 
@@ -80,7 +79,7 @@ function Signup() {
         </button>
       </form>
       <p>
-        <Link to="/login">Go to Login</Link>
+        <Link to="/login">Login</Link>
       </p>
     </div>
   );

@@ -8,7 +8,7 @@ function Home() {
   const { user, logout } = useAuth();
   const history = useHistory();
 
-  const goToEditProfile = () => history.push("/profile");
+  
 
   return (
     <div className="App">
@@ -17,13 +17,6 @@ function Home() {
         <h2>Welcome to Trailify</h2>
       </div>
       <p className="App-intro">
-        <button
-          type="button"
-          className="btn btn-primary"
-          onClick={goToEditProfile}
-        >
-          Go to Profile
-        </button>
         <button
           type="button"
           className="btn btn-danger"
