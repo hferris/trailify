@@ -9,8 +9,10 @@ import Profile from "./pages/Profile";
 import Signup from "./pages/Signup";
 import Home from "./pages/Home";
 import Practice from "./pages/Practice";
-import CreateQuestions from "./pages/CreateQuestions";
+import Dashboard from "./pages/Dashboard";
+import Favorites from "./pages/Favorites";
 import Navbar from "./components/Navbar";
+import trailApi from "./utils/auth/trailAPI/trailAPI";
 
 function App() {
   return (
@@ -31,11 +33,11 @@ function App() {
             <ProtectedRoute exact path="/profile">
               <Profile />
             </ProtectedRoute>
-            <ProtectedRoute exact path="/practice">
-              <Practice />
+            <ProtectedRoute exact path="/Favorites">
+              <Favorites />
             </ProtectedRoute>
-            <ProtectedRoute exact path="/createQuestions">
-              <CreateQuestions />
+            <ProtectedRoute exact path="/Dashboard">
+              <Dashboard />
             </ProtectedRoute>
           </Switch>
         </div>

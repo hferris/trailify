@@ -1,6 +1,6 @@
 import React from "react";
 import { useHistory } from "react-router-dom";
-import logo from "./logo.svg";
+
 import "./home.css";
 import { useAuth } from "../../utils/auth";
 
@@ -14,7 +14,7 @@ function Home() {
     <div className="App">
       <div className="App-header">
         
-        <h2>Welcome React NoteCards</h2>
+        <h2>Welcome to Trailify</h2>
       </div>
       <p className="App-intro">
         <button

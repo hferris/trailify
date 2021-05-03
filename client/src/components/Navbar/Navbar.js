@@ -27,9 +27,9 @@ function NavLinks() {
   const { isLoggedIn, logout } = useAuth();
   const links = [];
   if (isLoggedIn) {
-    links.push({ text: "Practice", to: "/practice" });
-    links.push({ text: "CreateQuestions", to: "createQuestions" });
-    links.push({ text: "Profile", to: "/profile" });
+    links.push({ text: "Home", to: "/" });
+    links.push({ text: "Dashboard", to: "/dashboard" });
+    links.push({ text: "Favorites", to: "/favorites" });
     links.push({ text: "Logout", onClick: () => logout() });
   } else {
     links.push({ text: "Signup", to: "/signup" });
@@ -51,7 +51,7 @@ function Navbar() {
     <nav className="navbar navbar-expand navbar-dark bg-primary">
       <div className="container">
         <Link className="navbar-brand" to="/">
-          React NoteCards
+          Trailify
         </Link>
         <NavLinks />
       </div>
