@@ -10,6 +10,7 @@ import Signup from "./pages/Signup";
 import Home from "./pages/Home";
 import Practice from "./pages/Practice";
 import Dashboard from "./pages/Dashboard";
+import Favorites from "./pages/Favorites";
 import Navbar from "./components/Navbar";
 import trailApi from "./utils/auth/trailAPI/trailAPI";
 
@@ -32,8 +33,8 @@ function App() {
             <ProtectedRoute exact path="/profile">
               <Profile />
             </ProtectedRoute>
-            <ProtectedRoute exact path="/practice">
-              <Practice />
+            <ProtectedRoute exact path="/Favorites">
+              <Favorites />
             </ProtectedRoute>
             <ProtectedRoute exact path="/Dashboard">
               <Dashboard />

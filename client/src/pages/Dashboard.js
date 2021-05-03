@@ -20,12 +20,12 @@ function Dashboard(props) {
     });
   }, []);
 
-  useEffect(() => {
-    weather.getWeather().then(({ data }) => {
-      console.log("weather data:", data);
-      setWeather(data.results);
-    });
-  }, []);
+  // useEffect(() => {
+  //   weather.getWeather().then(({ data }) => {
+  //     console.log("weather data:", data);
+  //     setWeather(data.results);
+  //   });
+  // }, []);
 
   const handleInputChange = useCallback(
     (event) => {
