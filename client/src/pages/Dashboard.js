@@ -44,10 +44,6 @@ function Dashboard(props) {
     setCity([...currentCity]);
   });
 
-  // const viewTrails = trails.map((hike) => {
-  //   return <p>{hike}</p>;
-  // });
-
   return (
     <div>
       <input
@@ -77,3 +73,5 @@ export default Dashboard;
 //
 
 //  const updatedTrails (for example) is a separate input window from original search/city
+
+//
