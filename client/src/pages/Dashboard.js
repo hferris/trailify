@@ -6,8 +6,8 @@ import { api_key } from "../api.json";
 import { park_api_key } from "../api.json";
 
 function Dashboard(props) {
-  const [park, setPark] = useState(null);
-  const [weatherResponse, setWeatherResponse] = useState(null);
+  const [park, setPark] = useState({});
+  const [weatherResponse, setWeatherResponse] = useState({});
   const [city, setCity] = useState("");
   const { user } = useAuth();
 
@@ -24,7 +24,7 @@ function Dashboard(props) {
   };
 
   const getCityWeather = () => {
-    const weatherURL = `http://api.openweathermap.org/data/2.5/weather?q=${city}&units=imperial&APPID=${api_key}`;
+    const weatherURL = `http://api.openweathermap.org/data/2.5/forecast?q=${city}&units=imperial&APPID=${api_key}`;
 
     fetch(weatherURL)
       .then((res) => res.json())
@@ -33,10 +33,10 @@ function Dashboard(props) {
         setWeatherResponse(data);
       });
   };
-  // const dailyData = data.list.filter(reading => {
-  //   return reading.dt_txt.includes("18:00:00")
-  //   }
-  // )
+  /*const dailyData = data.list.filter(reading => {
+    return reading.dt_txt.includes("13:00:00")
+    }
+  )*/
 
   const handleInputChange = (event) => {
     const val = event.target.value;
@@ -50,6 +50,8 @@ function Dashboard(props) {
     getCityWeather();
     getPark();
   });
+
+  
 
   return (
     <div>
@@ -75,11 +77,20 @@ function Dashboard(props) {
         </button>
       </div>
 
-      <div>
-        <p>Date: </p>
-        <p>Temperature: {weatherResponse?.main?.temp} F</p>
-        <p>Humidity: {weatherResponse?.main?.humidity}%</p>
+          {
+            weatherResponse.list ? weatherResponse.list.map((weatherItem, idx) => {
+              if (idx % 8 === 4) {
+                return (
+                  <div key={idx}>
+        <p>Date: {weatherResponse?.list[idx]?.dt_txt} Noon</p>
+        <p>Temperature: {weatherResponse?.list[idx]?.main?.temp} F</p>
+        <p>Humidity: {weatherResponse?.list[idx]?.main?.humidity}%</p>
       </div>
+                )
+              }
+            }) : ''
+          }
+      
 
        {/* add card styles to the below div */}
       <div className="card">
