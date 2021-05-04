@@ -5,6 +5,13 @@ import { useAuth } from "../utils/auth";
 import trail from "../utils/auth/trailAPI/trailAPI";
 import { api_key } from "../api.json";
 import { park_api_key } from "../api.json";
+import background from "../imgs/weather.jpg";
+
+const styles = {
+  fontFamily: "Roboto, Times New Roman, Times, serif",
+  boxSizing: "border-box",
+  backgroundImage: `url(${background})`,
+};
 
 function Dashboard(props) {
   const [park, setPark] = useState(null);
@@ -57,7 +64,7 @@ function Dashboard(props) {
   });
 
   return (
-    <div>
+    <div style={styles}>
       <div>
         <input
           value={city}
