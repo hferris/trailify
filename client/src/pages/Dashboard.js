@@ -41,41 +41,32 @@ function Dashboard(props) {
     event.preventDefault();
     console.log("city:", city);
     getCityWeather();
-
-    // const currentCity = city.filter((area) => {
-    //   if (area.name.indexOf(event.target.value) !== -1) {
-    //     return true;
-    //   }
-    //   return false;
-    // });
-    // if (currentCity.length === 0)
-    //   alert(
-    //     "No city with that name is available. Please clear your search and try again."
-    //   );
-    // setCity([...currentCity]);
   });
 
   return (
     <div>
-      <input
-        value={city}
-        onChange={handleInputChange}
-        name="text"
-        className="form-control me-2"
-        type="text"
-        placeholder="Search City Here"
-        aria-label="Search"
-      />
-      <button
-        className="btn btn-outline-success"
-        type="submit"
-        onClick={(event) => {
-          console.log(event.target.value);
-          handleSubmit(event);
-        }}
-      >
-        Submit
-      </button>
+      <div>
+        <input
+          value={city}
+          onChange={handleInputChange}
+          name="text"
+          className="form-control me-2"
+          type="text"
+          placeholder="Search City Here"
+          aria-label="Search"
+        />
+        <button
+          className="btn btn-outline-success"
+          type="submit"
+          onClick={(event) => {
+            console.log(event.target.value);
+            handleSubmit(event);
+          }}
+        >
+          Submit
+        </button>
+      </div>
+
       <div>
         <p>Temperature: {weatherResponse?.main?.temp} F</p>
         <p>Humidity: {weatherResponse?.main?.humidity}%</p>
