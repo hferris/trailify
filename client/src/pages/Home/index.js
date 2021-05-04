@@ -12,7 +12,13 @@ function Home() {
   const styles = {
     fontFamily: "Roboto, Times New Roman, Times, serif",
     boxSizing: "border-box",
+    width: '100vw',
+    height: '100vh',
+    backgroundPosition: 'center',
+    backgroundSize: 'cover',
+    backgroundRepeat: 'no-repeat',
     backgroundImage: `url(${background})`,
+    
   };
   
 
