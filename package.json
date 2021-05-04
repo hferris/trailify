@@ -28,6 +28,7 @@
     "prettier": "^2.0.5"
   },
   "dependencies": {
+    "axios": "^0.21.1",
     "bcrypt-nodejs": "0.0.3",
     "browserslist": "^4.16.6",
     "caniuse-lite": "^1.0.30001219",
