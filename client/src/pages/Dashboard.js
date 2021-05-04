@@ -8,8 +8,8 @@ import { park_api_key } from "../api.json";
 import background from "../imgs/weather.jpeg";
 
 const styles = {
-  fontFamily: "Roboto, Times New Roman, Times, serif",
-  boxSizing: "border-box",
+  // fontFamily: "Roboto, Times New Roman, Times, serif",
+  // boxSizing: "border-box",
   width: '100vw',
   height: '100vh',
   backgroundPosition: 'center',

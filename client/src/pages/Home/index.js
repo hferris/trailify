@@ -10,8 +10,8 @@ function Home() {
   const history = useHistory();
 
   const styles = {
-    fontFamily: "Roboto, Times New Roman, Times, serif",
-    boxSizing: "border-box",
+    // fontFamily: "Roboto, Times New Roman, Times, serif",
+    // boxSizing: "border-box",
     width: '100vw',
     height: '100vh',
     backgroundPosition: 'center',
