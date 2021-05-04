@@ -1,4 +1,4 @@
-# Trailify
+# Parkify
 
 # Here is the screenshots below :star_struck:
 ![Alt text](/./assets/imgs/ScreenShot.png?raw=true "Screenshot")
