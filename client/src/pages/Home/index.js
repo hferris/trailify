@@ -26,7 +26,7 @@ function Home() {
     <div style={styles} className="App">
       <div className="App-header">
         
-        <h2>Welcome to Trailify</h2>
+        <h2>Welcome to Parkify</h2>
         
       </div>
       <p className="App-intro">
