@@ -5,12 +5,18 @@ import { useAuth } from "../utils/auth";
 import trail from "../utils/auth/trailAPI/trailAPI";
 import { api_key } from "../api.json";
 import { park_api_key } from "../api.json";
-import background from "../imgs/weather.jpg";
+import background from "../imgs/weather.jpeg";
 
 const styles = {
   fontFamily: "Roboto, Times New Roman, Times, serif",
   boxSizing: "border-box",
+  width: '100vw',
+  height: '100vh',
+  backgroundPosition: 'center',
+  backgroundSize: 'cover',
+  backgroundRepeat: 'no-repeat',
   backgroundImage: `url(${background})`,
+  
 };
 
 function Dashboard(props) {
