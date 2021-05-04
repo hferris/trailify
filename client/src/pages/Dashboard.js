@@ -4,21 +4,33 @@ import { Link } from "react-router-dom";
 import { useAuth } from "../utils/auth";
 import trail from "../utils/auth/trailAPI/trailAPI";
 import { api_key } from "../api.json";
+import { park_api_key } from "../api.json";
 
 function Dashboard(props) {
-  const [trails, setTrails] = useState([]);
+  const [park, setPark] = useState(null);
   const [currentWeather, setCurrentWeather] = useState([]);
   const [originalTrails, setOriginalTrails] = useState([]);
   const [weatherResponse, setWeatherResponse] = useState(null);
   const [city, setCity] = useState("");
   const { user } = useAuth();
 
-  useEffect(() => {
-    trail.getTrail().then(({ data }) => {
-      console.log("trail data:", data);
-      setTrails(data.results);
-    });
-  }, []);
+  // useEffect(() => {
+  //   trail.getTrail().then(({ data }) => {
+  //     console.log("trail data:", data);
+  //     setTrails(data.results);
+  //   });
+  // }, []);
+
+  const getPark = () => {
+    const parkURL = `https://developer.nps.gov/api/v1/parks?parkCode=acad&api_key=${park_api_key}`;
+                                                  //  Query String Parameters - parkCode=acad,dena
+    fetch(parkURL)
+      .then((res) => res.json())
+      .then((data) => {
+        console.log("park:", data);
+        setPark(data);
+      });
+  };
 
   const getCityWeather = () => {
     const weatherURL = `http://api.openweathermap.org/data/2.5/weather?q=${city}&units=imperial&APPID=${api_key}`;
@@ -41,6 +53,7 @@ function Dashboard(props) {
     event.preventDefault();
     console.log("city:", city);
     getCityWeather();
+    getPark();
   });
 
   return (
