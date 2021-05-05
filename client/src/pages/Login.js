@@ -4,14 +4,12 @@ import { useAuth } from "../utils/auth";
 import background from "../imgs/login.jpeg";
 
 const styles = {
-  // fontFamily: "Roboto, Times New Roman, Times, serif",
-  // boxSizing: "border-box",
-  width: '100vw',
-  height: '100vh',
+  height: "100vh",
+  width: "100vw",
+  backgroundRepeat: "no-repeat",
   backgroundPosition: 'center',
-  backgroundSize: 'cover',
-  backgroundRepeat: 'no-repeat',
-  backgroundImage: `url(${background})`,
+  backgroundSize: "cover",
+  background: `url(${background})`,
   
 };
 
