@@ -1,4 +1,4 @@
-# Trailify
+# Parkify
 
 # Here is the screenshots below :star_struck:
 ![Alt text](/./assets/imgs/ScreenShot.png?raw=true "Screenshot")
@@ -12,15 +12,15 @@ Heroku link here...
 
 # User Story:
 As a user:
-I want to be able to login in to see all the trails,
-I want to be able to see the weather on the trails and 
-I want to be able to rate the trails I have taken.
+I want to be able to login in to see all the national parks,
+I want to be able to see the weather on the park and
+I want to be able to rate the park I have taken.
 
 # Description
-This is an application that provides users different types of trails in their areas to hike on. The user can sign up using username and password, sign in to view all the trails around them and the weather on the trails. After hiking the trail of their choice they can favorite the trail to refer back too.
+This is an application that provides users different types of national parks in their areas to visit. The user can sign up using username and password, sign in to view all the parks around them and the weather on the parks. After visiting the park of their choice they can favorite the park to refer back too.
 
 # Application Value
-We believe nature is loved by most people. Now the covid vaccine is out, people are more comfortable with being out and about, and summer coming up, this app can be very useful. Hiking is one of the biggest activities during the summer for people to stay fit and active. This application will make life easier for many people to be able to find that perfect hiking spot, weather, and save the trails that they loved most for next time or to share with family and friends. 
+We believe nature is loved by most people. Now the covid vaccine is out, people are more comfortable with being out and about, and summer coming up, this app can be very useful. outdoor activities are used during the summer for people to stay fit and active. This application will make life easier for many people to be able to find that perfect spot, weather, and save the parks that they loved most for next time or to share with family and friends. 
 
 # Task Breakdown
 John:

@@ -4,6 +4,19 @@ import { Link } from "react-router-dom";
 import { useAuth } from "../utils/auth";
 import { api_key } from "../api.json";
 import { park_api_key } from "../api.json";
+import background from "../imgs/weather.jpeg";
+
+const styles = {
+  // fontFamily: "Roboto, Times New Roman, Times, serif",
+  // boxSizing: "border-box",
+  width: '100vw',
+  height: '100vh',
+  backgroundPosition: 'center',
+  backgroundSize: 'cover',
+  backgroundRepeat: 'no-repeat',
+  backgroundImage: `url(${background})`,
+  
+};
 
 function Dashboard(props) {
   const [park, setPark] = useState({});
@@ -48,7 +61,7 @@ function Dashboard(props) {
   });
 
   return (
-    <div>
+    <div style={styles}>
       <div>
         <input
           value={city}
