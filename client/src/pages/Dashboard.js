@@ -7,13 +7,11 @@ import { park_api_key } from "../api.json";
 import background from "../imgs/weather.jpeg";
 
 const styles = {
-  // fontFamily: "Roboto, Times New Roman, Times, serif",
-  // boxSizing: "border-box",
-  width: '100vw',
-  height: '100vh',
+  height: "100vh",
+  width: "100vw",
+  backgroundRepeat: "no-repeat",
   backgroundPosition: 'center',
-  backgroundSize: 'cover',
-  backgroundRepeat: 'no-repeat',
+  backgroundSize: "cover",
   backgroundImage: `url(${background})`,
   
 };
