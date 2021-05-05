@@ -2,7 +2,6 @@ import React, { useState, useEffect, useCallback } from "react";
 import API from "./../utils/API";
 import { Link } from "react-router-dom";
 import { useAuth } from "../utils/auth";
-import trail from "../utils/auth/trailAPI/trailAPI";
 import { api_key } from "../api.json";
 import { park_api_key } from "../api.json";
 import background from "../imgs/weather.jpeg";
@@ -20,23 +19,15 @@ const styles = {
 };
 
 function Dashboard(props) {
-  const [park, setPark] = useState(null);
-  const [currentWeather, setCurrentWeather] = useState([]);
-  const [originalTrails, setOriginalTrails] = useState([]);
-  const [weatherResponse, setWeatherResponse] = useState(null);
+  const [park, setPark] = useState({});
+  const [weatherResponse, setWeatherResponse] = useState({});
   const [city, setCity] = useState("");
   const { user } = useAuth();
 
-  // useEffect(() => {
-  //   trail.getTrail().then(({ data }) => {
-  //     console.log("trail data:", data);
-  //     setTrails(data.results);
-  //   });
-  // }, []);
-
   const getPark = () => {
-    const parkURL = `https://developer.nps.gov/api/v1/parks?parkCode=acad&api_key=${park_api_key}`;
-                                                  //  Query String Parameters - parkCode=acad,dena
+    const parkURL = `https://developer.nps.gov/api/v1/parks?q=${city}&api_key=${park_api_key}`;
+    // 'https://developer.nps.gov/api/v1/parks?parkCode=acad&api_key=INSERT-API-KEY-HERE'
+    console.log("parkURL: ", parkURL);
     fetch(parkURL)
       .then((res) => res.json())
       .then((data) => {
@@ -46,7 +37,7 @@ function Dashboard(props) {
   };
 
   const getCityWeather = () => {
-    const weatherURL = `http://api.openweathermap.org/data/2.5/weather?q=${city}&units=imperial&APPID=${api_key}`;
+    const weatherURL = `http://api.openweathermap.org/data/2.5/forecast?q=${city}&units=imperial&APPID=${api_key}`;
 
     fetch(weatherURL)
       .then((res) => res.json())
@@ -93,9 +84,38 @@ function Dashboard(props) {
         </button>
       </div>
 
-      <div>
-        <p>Temperature: {weatherResponse?.main?.temp} F</p>
-        <p>Humidity: {weatherResponse?.main?.humidity}%</p>
+      {weatherResponse.list
+        ? weatherResponse.list.map((weatherItem, idx) => {
+            if (idx % 8 === 4) {
+              return (
+                <div key={idx}>
+                  <p>Date: {weatherResponse?.list[idx]?.dt_txt}</p>
+                  <p>Temperature: {weatherResponse?.list[idx]?.main?.temp} F</p>
+                  <p>Humidity: {weatherResponse?.list[idx]?.main?.humidity}%</p>
+                </div>
+              );
+            }
+          })
+        : ""}
+
+      {/* add card styles to the below div */}
+      <div className="card">
+        <img
+          // style={{ width: "100px", height: "100px" }}
+          src={props.image}
+          className="card-img-top"
+          alt={setPark}
+        />
+        <div>
+          <div className="card-body">
+            <h5 className="card-title">Name: {setPark}</h5>
+            <p className="card-text">Description: {setPark}</p>
+          </div>
+          <ul className="list-group list-group-flush">
+            <li className="list-group-item">Directions: {setPark}</li>
+            <li className="list-group-item">email to Contact: {setPark}</li>
+          </ul>
+        </div>
       </div>
     </div>
   );
