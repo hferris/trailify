@@ -96,6 +96,7 @@ function Dashboard(props) {
     <div style={styles}>
       <div>
         <input
+          style={{width: "25vw"}}
           value={city}
           onChange={handleInputChange}
           name="text"
