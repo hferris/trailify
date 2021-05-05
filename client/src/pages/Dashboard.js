@@ -89,7 +89,7 @@ function Dashboard(props) {
             if (idx % 8 === 4) {
               return (
                 <div key={idx}>
-                  <p>Date: {weatherResponse?.list[idx]?.dt_txt} Noon</p>
+                  <p>Date: {weatherResponse?.list[idx]?.dt_txt}</p>
                   <p>Temperature: {weatherResponse?.list[idx]?.main?.temp} F</p>
                   <p>Humidity: {weatherResponse?.list[idx]?.main?.humidity}%</p>
                 </div>
