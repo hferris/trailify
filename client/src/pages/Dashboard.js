@@ -9,13 +9,12 @@ import background from "../imgs/weather.jpeg";
 const styles = {
   // fontFamily: "Roboto, Times New Roman, Times, serif",
   // boxSizing: "border-box",
-  width: '100vw',
-  height: '100vh',
-  backgroundPosition: 'center',
-  backgroundSize: 'cover',
-  backgroundRepeat: 'no-repeat',
+  width: "100vw",
+  height: "100vh",
+  backgroundPosition: "center",
+  backgroundSize: "cover",
+  backgroundRepeat: "no-repeat",
   backgroundImage: `url(${background})`,
-  
 };
 const cardStyles = {
   display: "flex",
@@ -56,16 +55,18 @@ function Dashboard(props) {
   const [weatherResponse, setWeatherResponse] = useState({});
   const [city, setCity] = useState("");
   const { user } = useAuth();
+  const [test, setTest] = useState({ data: [] });
 
   const getPark = () => {
-    const parkURL = `https://developer.nps.gov/api/v1/parks?q=${city}&api_key=${park_api_key}`;
-    // 'https://developer.nps.gov/api/v1/parks?parkCode=acad&api_key=INSERT-API-KEY-HERE'
+    const parkURL = `https://developer.nps.gov/api/v1/parks?parkCode=&stateCode=${city}&stateCode&api_key=${park_api_key}`;
+
     console.log("parkURL: ", parkURL);
     fetch(parkURL)
       .then((res) => res.json())
       .then((data) => {
-        console.log("park:", data);
-        setPark(data);
+        console.log("data:", data);
+        setTest({ data: data.data });
+        console.log("test:", test);
       });
   };
 
@@ -134,6 +135,7 @@ function Dashboard(props) {
           })
         : ""}
 
+<<<<<<< HEAD
       {/* Park Card */}
       <div style={getParkStyles} className="card">
         <img
@@ -153,16 +155,63 @@ function Dashboard(props) {
           </ul>
         </div>
       </div>
+=======
+      {test.data
+        ? test.data.map((obj) => {
+            return (
+              /* add card styles to the below div */
+              <div className="card">
+                <img
+                  // style={{ width: "100px", height: "100px" }}
+                  src={obj.images}
+                  className="card-img-top"
+                  alt={obj.images.altText}
+                />
+                <div>
+                  <div className="card-body">
+                    <h5 className="card-title">Name: {obj.name} </h5>
+                    <p className="card-text">
+                      Description: {obj.description} {}
+                    </p>
+                  </div>
+                  <ul className="list-group list-group-flush">
+                    <li className="list-group-item">
+                      Directions: {obj.directionsInfo}
+                    </li>
+                    <li className="list-group-item">
+                      Designated as a: {obj.designation}
+                    </li>
+                    <li className="list-group-item">
+                      <button
+                        className="btn btn-outline-success"
+                        type="submit"
+                        onClick={(event) => {
+                          console.log(event.target.value);
+                          // handleSave(event);
+                        }}
+                      >
+                        Save as Favorite
+                      </button>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            );
+          })
+        : " "}
+>>>>>>> e92e3d6699c508e82c1bb1ef65221a5c74311aa9
     </div>
   );
 }
 
 export default Dashboard;
-// the search trails input will be used for both the trails and the weather api. The goal is to bring in the current weather specific to the area AND a list of available trails for that area and display on Dashboard.
-//
 
-//  const updatedTrails (for example) is a separate input window from original search/city
-
-//
-//  {weatherResponse
-// && JSON.stringify(weatherResponse)}
+//  // Saves a park to the database
+//  handleSave: function (savePark) {
+//   return axios.post("/api/trails", savePark);
+// },
+// // Deletes the park with the given id
+// deleteSave: function (id) {
+//   return axios.delete("/api/trails/" + id);
+// },
+// };

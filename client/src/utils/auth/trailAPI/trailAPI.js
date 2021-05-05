@@ -15,11 +15,11 @@ export default {
     );
   },
   // Saves a trail to the database
-  saveTrail: function (saveTrail) {
-    return axios.post("/api/trails", saveTrail);
+  handleSave: function (savePark) {
+    return axios.post("/api/trails", savePark);
   },
   // Deletes the trail with the given id
-  deleteTrail: function (id) {
+  deleteSave: function (id) {
     return axios.delete("/api/trails/" + id);
   },
 };
