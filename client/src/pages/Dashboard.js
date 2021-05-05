@@ -8,23 +8,29 @@ import background from "../imgs/weather.jpeg";
 
 const styles = {
   width: "100vw",
-  height: "100vh",
+  minHeight: "100vh",
   backgroundPosition: "center",
   backgroundSize: "cover",
   backgroundRepeat: "no-repeat",
   backgroundImage: `url(${background})`,
+  backgroundAttachment: "fixed",
+
 };
-// const cardStyles = {
-//   display: "flex",
-//   flexDirection: "row",
-//   float: "left",
-//   width: "50%",
-//   padding: "0 10px",
-//   border: "3px solid black",
-//   borderRadius: "10px",
-//   backgroundColor: "#F708C5",
+const cardStyles = {
+  display: "flex",
+  flexDirection: "row",
+  width: "75%",
+  padding: "0 10px",
+  border: "3px solid black",
+  borderRadius: "10px",
+  opacity: "0.5",
+  marginRight: "auto",
+  marginLeft: "auto",
+  textAlign: "center",
   
-// };
+  
+  
+};
 // const getParkStyles = {
 //   display: "flex",
 //   flexDirection: "row",
@@ -138,7 +144,8 @@ function Dashboard(props) {
         ? test.data.map((obj) => {
             return (
               /* add card styles to the below div */
-              <div className="card">
+              <div style={cardStyles}
+                className="card">
                 <img
                   // style={{ width: "100px", height: "100px" }}
                   src={obj.images}
