@@ -5,13 +5,11 @@ import { useAuth } from "../utils/auth";
 import background from "../imgs/signup.jpeg";
 
 const styles = {
-  // fontFamily: "Roboto, Times New Roman, Times, serif",
-  // boxSizing: "border-box",
-  width: '100vw',
-  height: '100vh',
+  height: "100vh",
+  width: "100vw",
+  backgroundRepeat: "no-repeat",
   backgroundPosition: 'center',
-  backgroundSize: 'cover',
-  backgroundRepeat: 'no-repeat',
+  backgroundSize: "cover",
   backgroundImage: `url(${background})`,
   
 };
