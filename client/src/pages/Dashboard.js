@@ -16,39 +16,39 @@ const styles = {
   backgroundRepeat: "no-repeat",
   backgroundImage: `url(${background})`,
 };
-const cardStyles = {
-  display: "flex",
-  flexDirection: "row",
-  float: "left",
-  width: "50%",
-  padding: "0 10px",
-  border: "3px solid black",
-  borderRadius: "10px",
-  backgroundColor: "#F708C5",
+// const cardStyles = {
+//   display: "flex",
+//   flexDirection: "row",
+//   float: "left",
+//   width: "50%",
+//   padding: "0 10px",
+//   border: "3px solid black",
+//   borderRadius: "10px",
+//   backgroundColor: "#F708C5",
   
-};
-const getParkStyles = {
-  display: "flex",
-  flexDirection: "row",
-  float: "left",
-  width: "50%",
-  padding: "0 10px",
-  border: "3px solid black",
-  borderRadius: "10px",
-  backgroundColor: "#625F61",
+// };
+// const getParkStyles = {
+//   display: "flex",
+//   flexDirection: "row",
+//   float: "left",
+//   width: "50%",
+//   padding: "0 10px",
+//   border: "3px solid black",
+//   borderRadius: "10px",
+//   backgroundColor: "#625F61",
   
-};
-const forecastStyles = {
-  display: "flex",
-  flexDirection: "row",
-  float: "left",
-  width: "50%",
-  padding: "0 10px",
-  border: "3px solid black",
-  borderRadius: "10px",
-  backgroundColor: "#625F61",
+// };
+// const forecastStyles = {
+//   display: "flex",
+//   flexDirection: "row",
+//   float: "left",
+//   width: "50%",
+//   padding: "0 10px",
+//   border: "3px solid black",
+//   borderRadius: "10px",
+//   backgroundColor: "#625F61",
   
-};
+// };
 
 function Dashboard(props) {
   const [park, setPark] = useState({});
@@ -103,7 +103,7 @@ function Dashboard(props) {
           name="text"
           className="form-control me-2"
           type="text"
-          placeholder="Search City Here"
+          placeholder="Enter State Code Here"
           aria-label="Search"
         />
         <button
@@ -125,7 +125,7 @@ function Dashboard(props) {
             if (idx % 8 === 4) {
               return (
                 // forecast card
-                <div style={forecastStyles} key={idx}>
+                <div key={idx}>
                   <p>Date: {weatherResponse?.list[idx]?.dt_txt}</p>
                   <p>Temperature: {weatherResponse?.list[idx]?.main?.temp} F</p>
                   <p>Humidity: {weatherResponse?.list[idx]?.main?.humidity}%</p>
@@ -135,27 +135,6 @@ function Dashboard(props) {
           })
         : ""}
 
-<<<<<<< HEAD
-      {/* Park Card */}
-      <div style={getParkStyles} className="card">
-        <img
-          // style={{ width: "100px", height: "100px" }}
-          src={props.image}
-          className="card-img-top"
-          alt={setPark}
-        />
-        <div>
-          <div className="card-body">
-            <h5 className="card-title">Name: {setPark}</h5>
-            <p className="card-text">Description: {setPark}</p>
-          </div>
-          <ul className="list-group list-group-flush">
-            <li className="list-group-item">Directions: {setPark}</li>
-            <li className="list-group-item">email to Contact: {setPark}</li>
-          </ul>
-        </div>
-      </div>
-=======
       {test.data
         ? test.data.map((obj) => {
             return (
@@ -199,7 +178,6 @@ function Dashboard(props) {
             );
           })
         : " "}
->>>>>>> e92e3d6699c508e82c1bb1ef65221a5c74311aa9
     </div>
   );
 }
