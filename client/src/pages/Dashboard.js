@@ -14,7 +14,7 @@ function Dashboard(props) {
   const getPark = () => {
     const parkURL = `https://developer.nps.gov/api/v1/parks?q=${city}&api_key=${park_api_key}`;
     // 'https://developer.nps.gov/api/v1/parks?parkCode=acad&api_key=INSERT-API-KEY-HERE'
-    console.log("parkURL: ", parkURL)
+    console.log("parkURL: ", parkURL);
     fetch(parkURL)
       .then((res) => res.json())
       .then((data) => {
@@ -33,10 +33,6 @@ function Dashboard(props) {
         setWeatherResponse(data);
       });
   };
-  /*const dailyData = data.list.filter(reading => {
-    return reading.dt_txt.includes("13:00:00")
-    }
-  )*/
 
   const handleInputChange = (event) => {
     const val = event.target.value;
@@ -50,8 +46,6 @@ function Dashboard(props) {
     getCityWeather();
     getPark();
   });
-
-  
 
   return (
     <div>
@@ -77,40 +71,39 @@ function Dashboard(props) {
         </button>
       </div>
 
-          {
-            weatherResponse.list ? weatherResponse.list.map((weatherItem, idx) => {
-              if (idx % 8 === 4) {
-                return (
-                  <div key={idx}>
-        <p>Date: {weatherResponse?.list[idx]?.dt_txt} Noon</p>
-        <p>Temperature: {weatherResponse?.list[idx]?.main?.temp} F</p>
-        <p>Humidity: {weatherResponse?.list[idx]?.main?.humidity}%</p>
-      </div>
-                )
-              }
-            }) : ''
-          }
-      
+      {weatherResponse.list
+        ? weatherResponse.list.map((weatherItem, idx) => {
+            if (idx % 8 === 4) {
+              return (
+                <div key={idx}>
+                  <p>Date: {weatherResponse?.list[idx]?.dt_txt} Noon</p>
+                  <p>Temperature: {weatherResponse?.list[idx]?.main?.temp} F</p>
+                  <p>Humidity: {weatherResponse?.list[idx]?.main?.humidity}%</p>
+                </div>
+              );
+            }
+          })
+        : ""}
 
-       {/* add card styles to the below div */}
+      {/* add card styles to the below div */}
       <div className="card">
-      <img
-        // style={{ width: "100px", height: "100px" }}
-        src={props.image}
-        className="card-img-top"
-        alt={setPark}
-      />
-      <div>
-        <div className="card-body">
-          <h5 className="card-title">Name: {setPark}</h5>
-          <p className="card-text">Description: {setPark}</p>
+        <img
+          // style={{ width: "100px", height: "100px" }}
+          src={props.image}
+          className="card-img-top"
+          alt={setPark}
+        />
+        <div>
+          <div className="card-body">
+            <h5 className="card-title">Name: {setPark}</h5>
+            <p className="card-text">Description: {setPark}</p>
+          </div>
+          <ul className="list-group list-group-flush">
+            <li className="list-group-item">Directions: {setPark}</li>
+            <li className="list-group-item">email to Contact: {setPark}</li>
+          </ul>
         </div>
-        <ul className="list-group list-group-flush">
-          <li className="list-group-item">Directions: {setPark}</li>
-          <li className="list-group-item">email to Contact: {setPark}</li>
-        </ul>
       </div>
-    </div>
     </div>
   );
 }
