@@ -14,6 +14,39 @@ const styles = {
   backgroundRepeat: "no-repeat",
   backgroundImage: `url(${background})`,
 };
+// const cardStyles = {
+//   display: "flex",
+//   flexDirection: "row",
+//   float: "left",
+//   width: "50%",
+//   padding: "0 10px",
+//   border: "3px solid black",
+//   borderRadius: "10px",
+//   backgroundColor: "#F708C5",
+  
+// };
+// const getParkStyles = {
+//   display: "flex",
+//   flexDirection: "row",
+//   float: "left",
+//   width: "50%",
+//   padding: "0 10px",
+//   border: "3px solid black",
+//   borderRadius: "10px",
+//   backgroundColor: "#625F61",
+  
+// };
+// const forecastStyles = {
+//   display: "flex",
+//   flexDirection: "row",
+//   float: "left",
+//   width: "50%",
+//   padding: "0 10px",
+//   border: "3px solid black",
+//   borderRadius: "10px",
+//   backgroundColor: "#625F61",
+  
+// };
 
 function Dashboard(props) {
   const [park, setPark] = useState({});
@@ -63,15 +96,18 @@ function Dashboard(props) {
     <div style={styles}>
       <div>
         <input
+          style={{width: "25vw"}}
           value={city}
           onChange={handleInputChange}
           name="text"
           className="form-control me-2"
           type="text"
-          placeholder="Search City Here"
+          placeholder="Enter State Code Here"
           aria-label="Search"
         />
         <button
+        // submit button
+          // style={cardStyles}
           className="btn btn-outline-success"
           type="submit"
           onClick={(event) => {
@@ -87,6 +123,7 @@ function Dashboard(props) {
         ? weatherResponse.list.map((weatherItem, idx) => {
             if (idx % 8 === 4) {
               return (
+                // forecast card
                 <div key={idx}>
                   <p>Date: {weatherResponse?.list[idx]?.dt_txt}</p>
                   <p>Temperature: {weatherResponse?.list[idx]?.main?.temp} F</p>
