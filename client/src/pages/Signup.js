@@ -2,6 +2,19 @@ import React, { useState } from "react";
 import { Link, Redirect, useHistory } from "react-router-dom";
 import API from "./../utils/API";
 import { useAuth } from "../utils/auth";
+import background from "../imgs/signup.jpeg";
+
+const styles = {
+  // fontFamily: "Roboto, Times New Roman, Times, serif",
+  // boxSizing: "border-box",
+  width: '100vw',
+  height: '100vh',
+  backgroundPosition: 'center',
+  backgroundSize: 'cover',
+  backgroundRepeat: 'no-repeat',
+  backgroundImage: `url(${background})`,
+  
+};
 
 function Signup() {
   const [formState, setFormState] = useState({
@@ -38,7 +51,7 @@ function Signup() {
   };
 
   return (
-    <div className="container">
+    <div style={styles} className="container">
       <h1>Signup</h1>
       <form onSubmit={handleFormSubmit}>
         <div className="form-group">
