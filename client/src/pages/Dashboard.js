@@ -23,7 +23,7 @@ const cardStyles = {
   padding: "0 10px",
   border: "3px solid black",
   borderRadius: "10px",
-  opacity: "0.5",
+  opacity: "0.7",
   marginRight: "auto",
   marginLeft: "auto",
   textAlign: "center",
@@ -108,7 +108,7 @@ function Dashboard(props) {
           name="text"
           className="form-control me-2"
           type="text"
-          placeholder="Enter State Code Here"
+          placeholder="Enter State Code Here (AZ, CA, etc.)"
           aria-label="Search"
         />
         <button
