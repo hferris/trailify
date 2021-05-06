@@ -21,7 +21,7 @@ const cardStyles = {
   flexDirection: "row",
   width: "75%",
   // padding: "0 10px",
-  border: "3px solid black",
+  border: "1px solid black",
   borderRadius: "10px",
   opacity: "0.85",
   marginRight: "auto",
