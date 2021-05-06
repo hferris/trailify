@@ -147,10 +147,10 @@ function Dashboard(props) {
               <div style={cardStyles}
                 className="card">
                 <img 
-                  // style={{ width: "100px", height: "100px" }}
-                  src={obj.images}
+                   style={{ width: "400px", height: "400px" }}
+                  src={obj.images[0].url}
                   className="card-img-top"
-                  alt={obj.images.altText}
+                  alt={obj.images[0].altText}
                 />
                 <div>
                   <div className="card-body">
