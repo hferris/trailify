@@ -10,7 +10,7 @@ const parkSchema = new Schema({
   designation: { type: String, required: true },
 });
 
-const park = mongoose.model("Park", parkSchema);
+const Park = mongoose.model("Park", parkSchema);
 
 module.exports = Park;
 
