@@ -3,12 +3,13 @@ import background from "../imgs/fav.jpeg";
 
 
 const styles = {
-    height: "100vh",
+    minHeight: "100vh",
     width: "100vw",
     backgroundRepeat: "no-repeat",
     backgroundPosition: 'center',
     backgroundSize: "cover",
     backgroundImage: `url(${background})`,
+    backgroundAttachment: "fixed"
     
   };
 
