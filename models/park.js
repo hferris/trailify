@@ -2,17 +2,17 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
 // framework of a model from book hw - need info from api object to complete correctly
-const trailSchema = new Schema({
+const parkSchema = new Schema({
   name: { type: String, required: true },
-  location: { type: String, required: true },
-  // length: { type: Number },
-  // image: { type: [String] },
-  // link: { type: String, required: true },
+  description: { type: String, required: true },
+  directions: { type: Number },
+  image: { type: [String] },
+  designation: { type: String, required: true },
 });
 
-const Trail = mongoose.model("Trail", trailSchema);
+const Park = mongoose.model("Park", parkSchema);
 
-module.exports = Trail;
+module.exports = Park;
 
 /*
   axios.get('https://api.example.com')
