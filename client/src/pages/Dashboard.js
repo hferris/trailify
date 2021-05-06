@@ -172,7 +172,7 @@ function Dashboard(props) {
                         type="submit"
                         onClick={(event) => {
                           console.log(event.target.value);
-                          // handleSave(event);
+                          // handleSave(event.target.value);
                         }}
                       >
                         Save as Favorite

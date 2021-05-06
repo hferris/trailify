@@ -14,6 +14,7 @@ const styles = {
 
 
 function Favorites() {
+    
     return (
         <div style={styles}>
             <p>Hello Favorites</p>
