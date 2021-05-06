@@ -20,13 +20,14 @@ const cardStyles = {
   display: "flex",
   flexDirection: "row",
   width: "75%",
-  padding: "0 10px",
+  // padding: "0 10px",
   border: "3px solid black",
   borderRadius: "10px",
-  opacity: "0.7",
+  opacity: "0.85",
   marginRight: "auto",
   marginLeft: "auto",
   textAlign: "center",
+  backgroundColor: "#D3D3D3"
   
   
   
@@ -147,7 +148,7 @@ function Dashboard(props) {
               <div style={cardStyles}
                 className="card">
                 <img 
-                   style={{ width: "400px", height: "400px" }}
+                   style={{ width: "400px", height: "400px"}}
                   src={obj.images[0].url}
                   className="card-img-top"
                   alt={obj.images[0].altText}
@@ -160,13 +161,13 @@ function Dashboard(props) {
                     </p>
                   </div>
                   <ul className="list-group list-group-flush">
-                    <li className="list-group-item">
+                    <li style={{backgroundColor: "#D3D3D3"}} className="list-group-item">
                       Directions: {obj.directionsInfo}
                     </li>
-                    <li className="list-group-item">
+                    <li style={{backgroundColor: "#D3D3D3"}} className="list-group-item">
                       Designated as a: {obj.designation}
                     </li>
-                    <li className="list-group-item">
+                    <li style={{backgroundColor: "#D3D3D3"}} className="list-group-item">
                       <button
                         className="btn btn-outline-success"
                         type="submit"
