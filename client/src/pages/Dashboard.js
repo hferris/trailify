@@ -14,7 +14,6 @@ const styles = {
   backgroundRepeat: "no-repeat",
   backgroundImage: `url(${background})`,
   backgroundAttachment: "fixed",
-
 };
 const cardStyles = {
   display: "flex",
@@ -27,10 +26,7 @@ const cardStyles = {
   marginRight: "auto",
   marginLeft: "auto",
   textAlign: "center",
-  backgroundColor: "#D3D3D3"
-  
-  
-  
+  backgroundColor: "#D3D3D3",
 };
 // const getParkStyles = {
 //   display: "flex",
@@ -41,7 +37,7 @@ const cardStyles = {
 //   border: "3px solid black",
 //   borderRadius: "10px",
 //   backgroundColor: "#625F61",
-  
+
 // };
 // const forecastStyles = {
 //   display: "flex",
@@ -52,7 +48,7 @@ const cardStyles = {
 //   border: "3px solid black",
 //   borderRadius: "10px",
 //   backgroundColor: "#625F61",
-  
+
 // };
 
 function Dashboard(props) {
@@ -103,7 +99,7 @@ function Dashboard(props) {
     <div style={styles}>
       <div>
         <input
-          style={{width: "25vw"}}
+          style={{ width: "25vw" }}
           value={city}
           onChange={handleInputChange}
           name="text"
@@ -113,7 +109,7 @@ function Dashboard(props) {
           aria-label="Search"
         />
         <button
-        // submit button
+          // submit button
           // style={cardStyles}
           className="btn btn-outline-success"
           type="submit"
@@ -145,29 +141,42 @@ function Dashboard(props) {
         ? test.data.map((obj) => {
             return (
               /* add card styles to the below div */
-              <div style={cardStyles}
-                className="card">
-                <img 
-                   style={{ width: "400px", height: "400px"}}
+              <div style={cardStyles} className="card">
+                <img
+                  style={{ width: "400px", height: "400px" }}
                   src={obj.images[0].url}
                   className="card-img-top"
                   alt={obj.images[0].altText}
                 />
                 <div>
                   <div className="card-body">
-                    <h5 className="card-title">Name: {obj.name} </h5>
+                    <h5 className="card-title"> {obj.name} </h5>
+                    <p
+                      style={{ backgroundColor: "#D3D3D3" }}
+                      className="list-group-item"
+                    >
+                      {obj.designation}
+                    </p>
+
                     <p className="card-text">
                       Description: {obj.description} {}
                     </p>
                   </div>
                   <ul className="list-group list-group-flush">
-                    <li style={{backgroundColor: "#D3D3D3"}} className="list-group-item">
+                    <li
+                      style={{ backgroundColor: "#D3D3D3" }}
+                      className="list-group-item"
+                    >
                       Directions: {obj.directionsInfo}
                     </li>
-                    <li style={{backgroundColor: "#D3D3D3"}} className="list-group-item">
-                      Designated as a: {obj.designation}
-                    </li>
-                    <li style={{backgroundColor: "#D3D3D3"}} className="list-group-item">
+
+                    {/* <li style={{backgroundColor: "#D3D3D3"}} className="list-group-item">
+                      Designated as a: <a href={obj.url}></a>
+                    </li> */}
+                    <li
+                      style={{ backgroundColor: "#D3D3D3" }}
+                      className="list-group-item"
+                    >
                       <button
                         className="btn btn-outline-success"
                         type="submit"
