@@ -120,7 +120,7 @@ function Dashboard(props) {
           name="text"
           className="form-control me-2"
           type="text"
-          placeholder="Enter State Code Here (AZ, CA, etc.)"
+          placeholder="Enter State Code Here (AZ, TX, etc.)"
           aria-label="Search"
         />
         <button
