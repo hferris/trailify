@@ -1,11 +1,11 @@
 const router = require("express").Router();
-const trailController = require("../../controllers/trailController");
+const parkController = require("../../controllers/parkController");
 
 // Matches with "/api/posts"
 router
   .route("/")
 
-  .post(trailController.create);
+  .post(parkController.create);
 
 // Matches with "/api/posts/:id"
 // router.route("/:id").delete(trailController.remove);

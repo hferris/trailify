@@ -20,13 +20,14 @@ const cardStyles = {
   display: "flex",
   flexDirection: "row",
   width: "75%",
-  padding: "0 10px",
-  border: "3px solid black",
+  // padding: "0 10px",
+  border: "1px solid black",
   borderRadius: "10px",
-  opacity: "0.7",
+  opacity: "0.85",
   marginRight: "auto",
   marginLeft: "auto",
   textAlign: "center",
+  backgroundColor: "#D3D3D3"
   
   
   
@@ -146,11 +147,11 @@ function Dashboard(props) {
               /* add card styles to the below div */
               <div style={cardStyles}
                 className="card">
-                <img
-                  // style={{ width: "100px", height: "100px" }}
-                  src={obj.images}
+                <img 
+                   style={{ width: "400px", height: "400px"}}
+                  src={obj.images[0].url}
                   className="card-img-top"
-                  alt={obj.images.altText}
+                  alt={obj.images[0].altText}
                 />
                 <div>
                   <div className="card-body">
@@ -160,13 +161,13 @@ function Dashboard(props) {
                     </p>
                   </div>
                   <ul className="list-group list-group-flush">
-                    <li className="list-group-item">
+                    <li style={{backgroundColor: "#D3D3D3"}} className="list-group-item">
                       Directions: {obj.directionsInfo}
                     </li>
-                    <li className="list-group-item">
+                    <li style={{backgroundColor: "#D3D3D3"}} className="list-group-item">
                       Designated as a: {obj.designation}
                     </li>
-                    <li className="list-group-item">
+                    <li style={{backgroundColor: "#D3D3D3"}} className="list-group-item">
                       <button
                         className="btn btn-outline-success"
                         type="submit"
@@ -199,3 +200,16 @@ export default Dashboard;
 //   return axios.delete("/api/trails/" + id);
 // },
 // };
+
+// function renderUsers() {
+//   const userList = [];
+//   for(let i = 0; i < this.state.users.length; i++) {
+//       let name = `${this.state.users[i].name.first} ${this.state.users[i].name.last}`;
+//       let avatar = this.state.users[i].picture.thumbnail;
+//       let email = this.state.users[i].email;
+//       let key = this.state.users[i].id.value;
+//       userList.push(<User name={name} avatar={avatar} email={email} key={key}/>);
+//   }
+
+//   return userList;
+// }
