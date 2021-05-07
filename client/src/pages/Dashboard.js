@@ -5,8 +5,8 @@ import { useAuth } from "../utils/auth";
 import { api_key } from "../api.json";
 import { park_api_key } from "../api.json";
 import background from "../imgs/weather.jpeg";
-import PARKAPI from '../utils/auth/trailAPI/trailAPI'
-// import ParkInfo from "../components/ParkInfo";
+import PARKAPI from "../utils/auth/trailAPI/trailAPI";
+import ParkInfo from "../components/ParkInfo";
 import Context from "../utils/Context";
 
 const styles = {
@@ -98,16 +98,16 @@ function Dashboard(props) {
     getPark();
   });
 
-  const handleSave = (event) => {
+  const saveInput = (event) => {
     event.preventDefault();
-    PARKAPI.handleSave({ 
-      name: '',
+    PARKAPI.handleSave({
+      name: "",
       description: "",
       directions: "",
       image: "",
       designation: "",
-    })
-  }
+    });
+  };
 
   return (
     <div style={styles}>
@@ -119,7 +119,7 @@ function Dashboard(props) {
           name="text"
           className="form-control me-2"
           type="text"
-          placeholder="Enter State Code Here (AZ, CA, etc.)"
+          placeholder="Enter State Code Here (AZ, TX, etc.)"
           aria-label="Search"
         />
         <button
@@ -184,9 +184,6 @@ function Dashboard(props) {
                       Directions: {obj.directionsInfo}
                     </li>
 
-                    {/* <li style={{backgroundColor: "#D3D3D3"}} className="list-group-item">
-                      Designated as a: <a href={obj.url}></a>
-                    </li> */}
                     <li
                       style={{ backgroundColor: "#D3D3D3" }}
                       className="list-group-item"
@@ -196,7 +193,7 @@ function Dashboard(props) {
                         type="submit"
                         onClick={(event) => {
                           console.log(event.target.value);
-                          handleSave(event);
+                          saveInput(event);
                         }}
                       >
                         Save as Favorite
@@ -223,16 +220,3 @@ export default Dashboard;
 //   return axios.delete("/api/trails/" + id);
 // },
 // };
-
-// function renderUsers() {
-//   const userList = [];
-//   for(let i = 0; i < this.state.users.length; i++) {
-//       let name = `${this.state.users[i].name.first} ${this.state.users[i].name.last}`;
-//       let avatar = this.state.users[i].picture.thumbnail;
-//       let email = this.state.users[i].email;
-//       let key = this.state.users[i].id.value;
-//       userList.push(<User name={name} avatar={avatar} email={email} key={key}/>);
-//   }
-
-//   return userList;
-// }
