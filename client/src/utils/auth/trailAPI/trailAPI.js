@@ -3,24 +3,28 @@ import API_KEYS from "../../../api.json";
 
 export default {
   // Gets all titles or whatever the object supplies - be sure to call argument
-  getTrail: function (title) {
+  getpark: function (title) {
     return axios.get(
-      `https://trailapi-trailapi.p.rapidapi.com/trails/map/%7Bid%7D/gpx/`,
+      `https://parkapi-parkapi.p.rapidapi.com/park/map/%7Bid%7D/gpx/`,
       {
         headers: {
-          "x-rapidapi-key": API_KEYS.trail_api_key,
-          "x-rapidapi-host": "trailapi-trailapi.p.rapidapi.com",
+          "x-rapidapi-key": API_KEYS.park_api_key,
+          "x-rapidapi-host": "parkapi-parkapi.p.rapidapi.com",
         },
       }
     );
   },
-  // Saves a trail to the database
+  // Saves a park to the database
   handleSave: function (savePark) {
+<<<<<<< HEAD
     return axios.post("/api/parks/", savePark);
+=======
+    return axios.post("/api/park", savePark);
+>>>>>>> fc25abd959d2e9d4a4aacdb521f8f165c062f35b
   },
-  // Deletes the trail with the given id
+  // Deletes the park with the given id
   deleteSave: function (id) {
-    return axios.delete("/api/trails/" + id);
+    return axios.delete("/api/park/" + id);
   },
   getParks() {
     return axios.get('/api/parks');
@@ -29,4 +33,4 @@ export default {
 
 
 // from Rapid API
-// Get GPX data for a map. Returns a file in GPX format. Input (id) is a map ID, not a trail ID. To get the map ID, call /maps with the trail ID.
+// Get GPX data for a map. Returns a file in GPX format. Input (id) is a map ID, not a park ID. To get the map ID, call /maps with the park ID.
