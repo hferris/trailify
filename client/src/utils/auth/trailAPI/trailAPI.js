@@ -16,11 +16,14 @@ export default {
   },
   // Saves a park to the database
   handleSave: function (savePark) {
-    return axios.post("/api/park", savePark);
+    return axios.post("/api/parks/", savePark);
   },
   // Deletes the park with the given id
   deleteSave: function (id) {
-    return axios.delete("/api/park/" + id);
+    return axios.delete("/api/parks/" + id);
+  },
+  getParks() {
+    return axios.get('/api/parks');
   },
 };
 

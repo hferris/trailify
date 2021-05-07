@@ -5,6 +5,9 @@ import { useAuth } from "../utils/auth";
 import { api_key } from "../api.json";
 import { park_api_key } from "../api.json";
 import background from "../imgs/weather.jpeg";
+import PARKAPI from "../utils/auth/trailAPI/trailAPI";
+import ParkInfo from "../components/ParkInfo";
+import Context from "../utils/Context";
 
 const styles = {
   width: "100vw",
@@ -14,7 +17,6 @@ const styles = {
   backgroundRepeat: "no-repeat",
   backgroundImage: `url(${background})`,
   backgroundAttachment: "fixed",
-
 };
 const cardStyles = {
   display: "flex",
@@ -27,10 +29,7 @@ const cardStyles = {
   marginRight: "auto",
   marginLeft: "auto",
   textAlign: "center",
-  backgroundColor: "#D3D3D3"
-  
-  
-  
+  backgroundColor: "#D3D3D3",
 };
 // const getParkStyles = {
 //   display: "flex",
@@ -41,7 +40,7 @@ const cardStyles = {
 //   border: "3px solid black",
 //   borderRadius: "10px",
 //   backgroundColor: "#625F61",
-  
+
 // };
 // const forecastStyles = {
 //   display: "flex",
@@ -52,7 +51,7 @@ const cardStyles = {
 //   border: "3px solid black",
 //   borderRadius: "10px",
 //   backgroundColor: "#625F61",
-  
+
 // };
 
 function Dashboard(props) {
@@ -99,21 +98,33 @@ function Dashboard(props) {
     getPark();
   });
 
+  const saveInput = (event) => {
+    event.preventDefault();
+    PARKAPI.handleSave({
+      name: "",
+      description: "",
+      directions: "",
+      image: "",
+      designation: "",
+      });
+      // console.log("name:", {name});
+  };
+
   return (
     <div style={styles}>
       <div>
         <input
-          style={{width: "25vw"}}
+          style={{ width: "25vw" }}
           value={city}
           onChange={handleInputChange}
           name="text"
           className="form-control me-2"
           type="text"
-          placeholder="Enter State Code Here (AZ, CA, etc.)"
+          placeholder="Enter State Code Here (AZ, TX, etc.)"
           aria-label="Search"
         />
         <button
-        // submit button
+          //  submit button
           // style={cardStyles}
           className="btn btn-outline-success"
           type="submit"
@@ -145,35 +156,45 @@ function Dashboard(props) {
         ? test.data.map((obj) => {
             return (
               /* add card styles to the below div */
-              <div style={cardStyles}
-                className="card">
-                <img 
-                   style={{ width: "400px", height: "400px"}}
+              <div style={cardStyles} className="card">
+                <img
+                  style={{ width: "400px", height: "400px" }}
                   src={obj.images[0].url}
                   className="card-img-top"
                   alt={obj.images[0].altText}
                 />
                 <div>
                   <div className="card-body">
-                    <h5 className="card-title">Name: {obj.name} </h5>
+                    <h5 className="card-title"> {obj.name} </h5>
+                    <p
+                      style={{ backgroundColor: "#D3D3D3" }}
+                      className="list-group-item"
+                    >
+                      {obj.designation}
+                    </p>
+
                     <p className="card-text">
                       Description: {obj.description} {}
                     </p>
                   </div>
                   <ul className="list-group list-group-flush">
-                    <li style={{backgroundColor: "#D3D3D3"}} className="list-group-item">
+                    <li
+                      style={{ backgroundColor: "#D3D3D3" }}
+                      className="list-group-item"
+                    >
                       Directions: {obj.directionsInfo}
                     </li>
-                    <li style={{backgroundColor: "#D3D3D3"}} className="list-group-item">
-                      Designated as a: {obj.designation}
-                    </li>
-                    <li style={{backgroundColor: "#D3D3D3"}} className="list-group-item">
+
+                    <li
+                      style={{ backgroundColor: "#D3D3D3" }}
+                      className="list-group-item"
+                    >
                       <button
                         className="btn btn-outline-success"
                         type="submit"
                         onClick={(event) => {
                           console.log(event.target.value);
-                          // handleSave(event);
+                          saveInput(event);
                         }}
                       >
                         Save as Favorite
@@ -200,16 +221,3 @@ export default Dashboard;
 //   return axios.delete("/api/trails/" + id);
 // },
 // };
-
-// function renderUsers() {
-//   const userList = [];
-//   for(let i = 0; i < this.state.users.length; i++) {
-//       let name = `${this.state.users[i].name.first} ${this.state.users[i].name.last}`;
-//       let avatar = this.state.users[i].picture.thumbnail;
-//       let email = this.state.users[i].email;
-//       let key = this.state.users[i].id.value;
-//       userList.push(<User name={name} avatar={avatar} email={email} key={key}/>);
-//   }
-
-//   return userList;
-// }
