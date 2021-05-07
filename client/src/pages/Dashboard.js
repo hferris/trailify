@@ -106,7 +106,8 @@ function Dashboard(props) {
       directions: "",
       image: "",
       designation: "",
-    });
+      });
+      // console.log("name:", {name});
   };
 
   return (
