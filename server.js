@@ -10,7 +10,7 @@ const errorMiddleware = require("./routes/errorMiddleware");
 const trailRouter = require("./routes/api/trails");
 const weatherRouter = require("./routes/api/weather");
 
-const PORT = process.env.PORT || 3001;
+const PORT = process.env.PORT || 5000;
 
 // log all requests to the console in development
 if (process.env.NODE_ENV !== "production") {
