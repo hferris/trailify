@@ -7,5 +7,4 @@ router
   .get(parkController.findAll)
   .post(parkController.create);
 
-
 module.exports = router;
