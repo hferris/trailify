@@ -5,6 +5,9 @@ import { useAuth } from "../utils/auth";
 import { api_key } from "../api.json";
 import { park_api_key } from "../api.json";
 import background from "../imgs/weather.jpeg";
+import PARKAPI from '../utils/auth/trailAPI/trailAPI'
+// import ParkInfo from "../components/ParkInfo";
+import Context from "../utils/Context";
 
 const styles = {
   width: "100vw",
@@ -95,6 +98,17 @@ function Dashboard(props) {
     getPark();
   });
 
+  const handleSave = (event) => {
+    event.preventDefault();
+    PARKAPI.handleSave({ 
+      name: '',
+      description: "",
+      directions: "",
+      image: "",
+      designation: "",
+    })
+  }
+
   return (
     <div style={styles}>
       <div>
@@ -182,7 +196,7 @@ function Dashboard(props) {
                         type="submit"
                         onClick={(event) => {
                           console.log(event.target.value);
-                          // handleSave(event.target.value);
+                          handleSave(event);
                         }}
                       >
                         Save as Favorite

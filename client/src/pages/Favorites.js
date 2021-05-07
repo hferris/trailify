@@ -1,6 +1,6 @@
 import React from 'react'
 import background from "../imgs/fav.jpeg";
-
+import PARKAPI from '../utils/auth/trailAPI/trailAPI'
 
 const styles = {
     minHeight: "100vh",
@@ -15,7 +15,11 @@ const styles = {
 
 
 function Favorites() {
-    
+    React.useEffect(() => {
+        PARKAPI.getParks().then(({ data }) => {
+            console.log("favorites:",data)
+        })
+    })
     return (
         <div style={styles}>
             <p>Hello Favorites</p>

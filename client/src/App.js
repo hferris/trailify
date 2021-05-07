@@ -11,6 +11,7 @@ import Dashboard from "./pages/Dashboard";
 import Favorites from "./pages/Favorites";
 import Navbar from "./components/Navbar";
 import trailApi from "./utils/auth/trailAPI/trailAPI";
+import ParkInfo from "./components/ParkInfo";
 
 function App() {
   return (
@@ -29,12 +30,14 @@ function App() {
               <Signup />
             </Route>
 
+           
             <ProtectedRoute exact path="/Favorites">
-              <Favorites />
+              <ParkInfo component="favorites" />
             </ProtectedRoute>
             <ProtectedRoute exact path="/Dashboard">
-              <Dashboard />
+              <Dashboard component="dashboard"/>
             </ProtectedRoute>
+           
           </Switch>
         </div>
       </Router>
@@ -43,3 +46,5 @@ function App() {
 }
 
 export default App;
+
+
