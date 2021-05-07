@@ -12,6 +12,16 @@ const styles = {
     backgroundAttachment: "fixed"
     
   };
+// const styles = {
+//     minHeight: "100vh",
+//     width: "100vw",
+//     backgroundRepeat: "no-repeat",
+//     backgroundPosition: 'center',
+//     backgroundSize: "cover",
+//     backgroundImage: `url(${background})`,
+//     backgroundAttachment: "fixed"
+    
+//   };
 
 
 function Favorites() {
