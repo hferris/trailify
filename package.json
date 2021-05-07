@@ -30,6 +30,7 @@
   "dependencies": {
     "axios": "^0.21.1",
     "bcrypt-nodejs": "0.0.3",
+    "bootstrap": "^5.0.0",
     "browserslist": "^4.16.6",
     "caniuse-lite": "^1.0.30001219",
     "concurrently": "^5.2.0",
@@ -41,6 +42,7 @@
     "mongoose": "^5.9.13",
     "morgan": "^1.10.0",
     "react": "^17.0.2",
+    "react-bootstrap": "^1.5.2",
     "react-dom": "^17.0.2",
     "reactstrap": "^8.9.0"
   }

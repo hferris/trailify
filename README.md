@@ -12,7 +12,7 @@ Heroku link here...
 
 # User Story:
 As a user:
-I want to be able to login in to see all the national parks,
+I want to be able to login to see all the national parks,
 I want to be able to see the weather on the park and
 I want to be able to rate the park I have taken.
 
