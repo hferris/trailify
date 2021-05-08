@@ -26,7 +26,7 @@ function Home() {
     listStyleType: "none",
     display: "inline-block",
     fontSize: "1rem",
-    borderRadius: "40px",
+    borderRadius: "400px",
     fontFamily: "Roboto, Times New Roman, Times, serif",
   };
 
