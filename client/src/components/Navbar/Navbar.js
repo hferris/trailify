@@ -5,21 +5,19 @@ import { useAuth } from "../../utils/auth";
 const styles = {
   height: "10vh",
   width: "20vw",
-  padding: "15px",
-  fontFamily: "Arial",
 };
+
+const active= {
+background: "linear-gradient(135deg, #4D6241 50%, blue",
+}
 
 const backStyles = {
   fontSize: 20,
   fontWeight: "bold",
   listStyleType: "none",
   display: "inline-block",
-  marginLeft: "36%",
+  marginLeft: "0%",
   fontFamily: "Roboto, Times New Roman, Times, serif",
-};
-
-const navStyles = {
-  backgroundColor: "#F0550D ",
 };
 
 const createLink = ({ text, to, ...rest }) => {
@@ -68,10 +66,7 @@ function NavLinks() {
 
 function Navbar() {
   return (
-    <nav
-      style={navStyles}
-      className="navbar navbar-expand navbar-dark bg-secondary"
-    >
+    <nav style={active} className="navbar navbar-expand navbar-dark bg-secondary">
       <div style={backStyles} className="container">
         <Link className="navbar-brand" to="/"></Link>
         <NavLinks />
