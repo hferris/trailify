@@ -1,4 +1,4 @@
-import React from "react"
+import React from "react";
 import { useHistory } from "react-router-dom";
 import background from "../../imgs/home.jpeg";
 
@@ -13,26 +13,23 @@ function Home() {
     height: "100vh",
     width: "100vw",
     backgroundRepeat: "no-repeat",
-    backgroundPosition: 'center',
+    backgroundPosition: "center",
     backgroundSize: "cover",
     backgroundImage: `url(${background})`,
-    
   };
   const titleStyles = {
     backgroundSize: "cover",
-    backgroundImage: `url(${background})`,
-    minHeight: "10vh",
    
-
+    display: "center",
+    backgroundColor: "#4D6241",
   };
-  
 
   return (
     <div style={styles} className="App">
-      <div style={titleStyles}className="App-header">
-        
+      <div style={titleStyles} className="App-header">
         <h1>Welcome to Parkify</h1>
-        
+        <h5>!You deserve to live a great life!</h5>
+        <h6>To get started pleace create an account or sign in if you have already been registered.</h6>
       </div>
       <p className="App-intro">
         <button
