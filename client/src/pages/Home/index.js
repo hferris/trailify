@@ -26,7 +26,7 @@ function Home() {
     listStyleType: "none",
     display: "inline-block",
     fontSize: "1rem",
-    borderRadius: "400px",
+    borderRadius: "50px",
     fontFamily: "Roboto, Times New Roman, Times, serif",
   };
 
@@ -36,7 +36,7 @@ function Home() {
         <h1>Welcome to Parkify</h1>
         <h5>!You deserve to live a great life!</h5>
         <h6>
-          To get started pleace create an account or sign in if you have already
+          To get started please create an account or sign in if you have already
           been registered.
         </h6>
       </div>
