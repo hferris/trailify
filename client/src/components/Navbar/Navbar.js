@@ -7,7 +7,6 @@ const styles = {
   width: "20vw",
   padding: "15px",
   fontFamily: "Arial",
-
 };
 
 const backStyles = {
@@ -17,7 +16,6 @@ const backStyles = {
   display: "inline-block",
   marginLeft: "36%",
   fontFamily: "Roboto, Times New Roman, Times, serif",
-  
 };
 
 const navStyles = {

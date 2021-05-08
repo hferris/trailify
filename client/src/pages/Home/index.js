@@ -19,9 +19,15 @@ function Home() {
   };
   const titleStyles = {
     backgroundSize: "cover",
-   
     display: "center",
     backgroundColor: "#4D6241",
+    marginTop: "15%",
+    marginBottom: "3%",
+    listStyleType: "none",
+    display: "inline-block",
+    fontSize: "1rem",
+    borderRadius: "40px",
+    fontFamily: "Roboto, Times New Roman, Times, serif",
   };
 
   return (
@@ -29,7 +35,10 @@ function Home() {
       <div style={titleStyles} className="App-header">
         <h1>Welcome to Parkify</h1>
         <h5>!You deserve to live a great life!</h5>
-        <h6>To get started pleace create an account or sign in if you have already been registered.</h6>
+        <h6>
+          To get started pleace create an account or sign in if you have already
+          been registered.
+        </h6>
       </div>
       <p className="App-intro">
         <button
