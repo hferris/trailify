@@ -110,7 +110,7 @@ function Dashboard(props) {
       }).then(response => {
         console.log("response:", response)
       })
-      // console.log("name:", {name});
+      
   };
 
   return (

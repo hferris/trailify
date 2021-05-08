@@ -29,7 +29,9 @@ export default {
     return axios.delete("/api/parks/" + id);
   },
   getParks() {
-    return axios.get('/api/parks');
+    return axios.get('/api/parks',{
+      authorization: getAuthToken()
+    });
   },
 };
 

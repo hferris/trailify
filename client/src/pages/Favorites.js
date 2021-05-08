@@ -23,15 +23,9 @@ const styles = {
 //     backgroundAttachment: "fixed"
     
 //   };
-function addNewFavorite(parkData){
-return axios.post("/api/parks", parkData,{
-    "Authorization": getAuthToken()
-})
-}
 
-function getAuthToken() {
-    return localStorage.getItem("id_token");
-  }
+
+
 
 function Favorites() {
     React.useEffect(() => {
