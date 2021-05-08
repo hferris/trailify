@@ -99,6 +99,7 @@ function Dashboard(props) {
   });
 
   const saveInput = (event) => {
+    console.log("save input:")
     event.preventDefault();
     PARKAPI.handleSave({
       name: "",
@@ -106,7 +107,9 @@ function Dashboard(props) {
       directions: "",
       image: "",
       designation: "",
-      });
+      }).then(response => {
+        console.log("response:", response)
+      })
       // console.log("name:", {name});
   };
 

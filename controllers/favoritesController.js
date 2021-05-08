@@ -10,6 +10,8 @@ module.exports = {
       .catch((err) => res.status(422).json(err));
   },
   create: function (req, res) {
+    //  req.body will contain park data
+    // store user id with data
     db.Favorites.create(req.body)
       .then((dbModel) => res.json(dbModel))
       .catch((err) => res.status(422).json(err));

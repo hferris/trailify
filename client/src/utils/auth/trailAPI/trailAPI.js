@@ -1,6 +1,10 @@
 import axios from "axios";
 import API_KEYS from "../../../api.json";
 
+function getAuthToken() {
+  return localStorage.getItem("id_token");
+}
+
 export default {
   // Gets all titles or whatever the object supplies - be sure to call argument
   getpark: function (title) {
@@ -15,8 +19,10 @@ export default {
     );
   },
   // Saves a park to the database
-  handleSave: function (savePark) {
-    return axios.post("/api/parks/", savePark);
+  handleSave: function (parkToSave) {
+    return axios.post("/api/parks/", parkToSave, {
+      authorization: getAuthToken()
+    });
   },
   // Deletes the park with the given id
   deleteSave: function (id) {
@@ -28,5 +34,3 @@ export default {
 };
 
 
-// from Rapid API
-// Get GPX data for a map. Returns a file in GPX format. Input (id) is a map ID, not a park ID. To get the map ID, call /maps with the park ID.
