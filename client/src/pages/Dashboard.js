@@ -105,7 +105,7 @@ function Dashboard(props) {
       name: "",
       description: "",
       directions: "",
-      image: "",
+      image: ["park image"],
       designation: "",
       }).then(response => {
         console.log("response:", response)

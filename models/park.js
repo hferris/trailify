@@ -3,12 +3,12 @@ const Schema = mongoose.Schema;
 
 // framework of a model from book hw - need info from api object to complete correctly
 const parkSchema = new Schema({
-  user_id: {type: String,},
-  name: { type: String, required: true },
-  description: { type: String, required: true },
-  directions: { type: Number },
+  user_id: {type: String},
+  name: { type: String },
+  description: { type: String },
+  directions: { type: String },
   image: { type: [String] },
-  designation: { type: String, required: true },
+  designation: { type: String },
 });
 
 const Park = mongoose.model("Park", parkSchema);

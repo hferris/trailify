@@ -20,6 +20,7 @@ module.exports = {
       ...req.body,
       user_id: userData.id
     }
+    console.log("park to save",parkToSave)
     db.Park.create(parkToSave)
       .then((dbModel) => res.json(dbModel))
       .catch((err) => res.status(422).json(err));
