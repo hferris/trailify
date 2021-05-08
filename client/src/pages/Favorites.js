@@ -2,6 +2,8 @@ import React from 'react'
 import background from "../imgs/fav.jpeg";
 import PARKAPI from '../utils/auth/trailAPI/trailAPI'
 import axios from "axios";
+import response from "./Dashboard";
+
 
 const styles = {
     minHeight: "100vh",
@@ -13,16 +15,7 @@ const styles = {
     backgroundAttachment: "fixed"
     
   };
-// const styles = {
-//     minHeight: "100vh",
-//     width: "100vw",
-//     backgroundRepeat: "no-repeat",
-//     backgroundPosition: 'center',
-//     backgroundSize: "cover",
-//     backgroundImage: `url(${background})`,
-//     backgroundAttachment: "fixed"
-    
-//   };
+
 
 
 
@@ -33,9 +26,16 @@ function Favorites() {
             console.log("favorites:",data)
         })
     })
+
+
+
+
+
+
+
     return (
         <div style={styles}>
-            <p>Hello Favorites</p>
+            
         </div>
     )
 }

@@ -31,7 +31,7 @@ const cardStyles = {
   backgroundColor: "#D3D3D3",
 };
 
-function Dashboard(props) {
+function Dashboard() {
   const [park, setPark] = useState({});
   const [weatherResponse, setWeatherResponse] = useState({});
   const [city, setCity] = useState("");
@@ -87,6 +87,8 @@ function Dashboard(props) {
       console.log("response:", response);
     });
   };
+
+
 
   return (
     <div style={styles}>
