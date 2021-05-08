@@ -7,10 +7,16 @@ const styles = {
   height: "100vh",
   width: "100vw",
   backgroundRepeat: "no-repeat",
-  backgroundPosition: 'center',
+  backgroundPosition: "center",
   backgroundSize: "cover",
-  background: `url(${background})`,
-  
+  marginRight: "auto",
+  marginLeft: "auto",
+  border: "1px",
+  backgroundImage: `url(${background})`,
+};
+
+const whatstyles = {
+  width: "20vw",
 };
 
 function Login() {
@@ -23,13 +29,13 @@ function Login() {
     return <Redirect to="/" />;
   }
 
-  const handleFormSubmit = event => {
+  const handleFormSubmit = (event) => {
     event.preventDefault();
 
     login(email, password)
       // navigate to the profile page
       .then(() => history.push("/"))
-      .catch(err => {
+      .catch((err) => {
         alert(err.response.data.message);
       });
   };
@@ -42,6 +48,7 @@ function Login() {
           <label htmlFor="email">Email address:</label>
           <input
             className="form-control"
+            style={whatstyles}
             placeholder="Email goes here..."
             name="email"
             type="email"
@@ -54,6 +61,7 @@ function Login() {
           <label htmlFor="pwd">Password:</label>
           <input
             className="form-control"
+            style={whatstyles}
             placeholder="Password goes here..."
             name="password"
             type="password"

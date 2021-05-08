@@ -18,13 +18,20 @@ function Home() {
     backgroundImage: `url(${background})`,
     
   };
+  const titleStyles = {
+    backgroundSize: "cover",
+    backgroundImage: `url(${background})`,
+    minHeight: "10vh",
+   
+
+  };
   
 
   return (
     <div style={styles} className="App">
-      <div className="App-header">
+      <div style={titleStyles}className="App-header">
         
-        <h2>Welcome to Parkify</h2>
+        <h1>Welcome to Parkify</h1>
         
       </div>
       <p className="App-intro">

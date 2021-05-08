@@ -8,10 +8,17 @@ const styles = {
   height: "100vh",
   width: "100vw",
   backgroundRepeat: "no-repeat",
-  backgroundPosition: 'center',
+  backgroundPosition: "center",
   backgroundSize: "cover",
+  marginRight: "auto",
+  border: "1px",
+  padding: "10px",
+ 
   backgroundImage: `url(${background})`,
-  
+};
+
+const whatstyles = {
+  width: "20vw",
 };
 
 function Signup() {
@@ -57,6 +64,7 @@ function Signup() {
           <input
             className="form-control"
             placeholder="Username goes here..."
+            style={whatstyles}
             name="username"
             type="text"
             id="username"
@@ -67,6 +75,7 @@ function Signup() {
           <label htmlFor="email">Email address:</label>
           <input
             className="form-control"
+            style={whatstyles}
             placeholder="Email goes here..."
             name="email"
             type="email"
@@ -78,6 +87,7 @@ function Signup() {
           <label htmlFor="pwd">Password:</label>
           <input
             className="form-control"
+            style={whatstyles}
             placeholder="Password goes here..."
             name="password"
             type="password"
