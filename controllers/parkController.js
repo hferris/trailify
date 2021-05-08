@@ -26,7 +26,8 @@ module.exports = {
     const userData = decodeToken(req)
     const parkToSave = {
       ...req.body,
-      user_id: userData.id
+      user_id: userData.id,
+      
     }
     console.log("park to save",parkToSave)
     db.Park.create(parkToSave)
