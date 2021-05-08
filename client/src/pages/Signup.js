@@ -3,22 +3,26 @@ import { Link, Redirect, useHistory } from "react-router-dom";
 import API from "./../utils/API";
 import { useAuth } from "../utils/auth";
 import background from "../imgs/signup.jpeg";
+import "./Home/home.css";
+import "./styleHelper.css";
 
 const styles = {
-  height: "100vh",
-  width: "100vw",
+  height: "100%",
+  width: "100%",
   backgroundRepeat: "no-repeat",
   backgroundPosition: "center",
   backgroundSize: "cover",
-  marginRight: "auto",
   border: "1px",
   padding: "10px",
- 
   backgroundImage: `url(${background})`,
 };
 
-const whatstyles = {
-  width: "20vw",
+const titleStyles = {
+  marginTop: "5%",
+  marginBottom: "3%",
+  display: "inline-block",
+  fontSize: "1rem",
+  fontFamily: "Roboto, Times New Roman, Times, serif",
 };
 
 function Signup() {
@@ -56,52 +60,53 @@ function Signup() {
   };
 
   return (
-    <div style={styles} className="container">
-      <h1>Signup</h1>
-      <form onSubmit={handleFormSubmit}>
-        <div className="form-group">
-          <label htmlFor="username">Username:</label>
-          <input
-            className="form-control"
-            placeholder="Username goes here..."
-            style={whatstyles}
-            name="username"
-            type="text"
-            id="username"
-            onChange={handleChange}
-          />
-        </div>
-        <div className="form-group">
-          <label htmlFor="email">Email address:</label>
-          <input
-            className="form-control"
-            style={whatstyles}
-            placeholder="Email goes here..."
-            name="email"
-            type="email"
-            id="email"
-            onChange={handleChange}
-          />
-        </div>
-        <div className="form-group">
-          <label htmlFor="pwd">Password:</label>
-          <input
-            className="form-control"
-            style={whatstyles}
-            placeholder="Password goes here..."
-            name="password"
-            type="password"
-            id="pwd"
-            onChange={handleChange}
-          />
-        </div>
-        <button type="submit" className="btn btn-primary">
-          Submit
-        </button>
-      </form>
-      <p>
-        <Link to="/login">Login</Link>
-      </p>
+    <div style={styles} className="App">
+      <div styles={titleStyles} className="form-box">
+        <h1>Signup</h1>
+
+        <form onSubmit={handleFormSubmit}>
+          <div className="form-group">
+            <label htmlFor="username">Username:</label>
+            <input
+              className="form-control"
+              placeholder="Username goes here..."
+              name="username"
+              type="text"
+              id="username"
+              onChange={handleChange}
+            />
+          </div>
+          <div className="form-group">
+            <label htmlFor="email">Email address:</label>
+            <input
+              className="form-control"
+              placeholder="Email goes here..."
+              name="email"
+              type="email"
+              id="email"
+              onChange={handleChange}
+            />
+          </div>
+          <div className="form-group">
+            <label htmlFor="pwd">Password:</label>
+            <input
+              className="form-control"
+              placeholder="Password goes here..."
+              name="password"
+              type="password"
+              id="pwd"
+              onChange={handleChange}
+            />
+          </div>
+          <button type="submit" className="btn btn-primary">
+            Submit
+          </button>
+        </form>
+        <br></br>
+        <p>
+          <Link to="/login">Login</Link>
+        </p>
+      </div>
     </div>
   );
 }
