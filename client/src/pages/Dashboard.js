@@ -9,6 +9,7 @@ import PARKAPI from "../utils/auth/trailAPI/trailAPI";
 import ParkInfo from "../components/ParkInfo";
 import Context from "../utils/Context";
 
+
 const styles = {
   width: "100vw",
   minHeight: "100vh",
@@ -99,8 +100,9 @@ function Dashboard(props) {
   });
 
   const saveInput = (event) => {
-    console.log("save input:")
+    console.log("save input button clicked");
     event.preventDefault();
+    console.log("event", event)
     PARKAPI.handleSave({
       name: "",
       description: "",
