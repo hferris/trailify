@@ -23,7 +23,6 @@ const cardStyles = {
   display: "flex",
   flexDirection: "row",
   width: "75%",
-  // padding: "0 10px",
   border: "1px solid black",
   borderRadius: "10px",
   opacity: "0.85",
@@ -32,28 +31,6 @@ const cardStyles = {
   textAlign: "center",
   backgroundColor: "#D3D3D3",
 };
-// const getParkStyles = {
-//   display: "flex",
-//   flexDirection: "row",
-//   float: "left",
-//   width: "50%",
-//   padding: "0 10px",
-//   border: "3px solid black",
-//   borderRadius: "10px",
-//   backgroundColor: "#625F61",
-
-// };
-// const forecastStyles = {
-//   display: "flex",
-//   flexDirection: "row",
-//   float: "left",
-//   width: "50%",
-//   padding: "0 10px",
-//   border: "3px solid black",
-//   borderRadius: "10px",
-//   backgroundColor: "#625F61",
-
-// };
 
 function Dashboard(props) {
   const [park, setPark] = useState({});
