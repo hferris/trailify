@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Link, Redirect, useHistory } from "react-router-dom";
 import { useAuth } from "../utils/auth";
-import background from "../imgs/login.jpg";
+import background from "../imgs/login.jpeg";
 import "./Home/home.css";
 import "./styleHelper.css";
 
@@ -11,6 +11,7 @@ const styles = {
   backgroundRepeat: "no-repeat",
   backgroundPosition: "center",
   backgroundSize: "cover",
+  padding: "110px",
   backgroundImage: `url(${background})`,
 };
 
