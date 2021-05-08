@@ -13,7 +13,7 @@ const styles = {
   backgroundPosition: "center",
   backgroundSize: "cover",
   border: "1px",
-  padding: "10px",
+  padding: "110px",
   backgroundImage: `url(${background})`,
 };
 
