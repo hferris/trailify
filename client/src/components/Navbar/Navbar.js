@@ -2,6 +2,24 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { useAuth } from "../../utils/auth";
 
+const styles = {
+  height: "10vh",
+  width: "20vw",
+};
+
+const active= {
+background: "linear-gradient(135deg, #4D6241 50%, blue",
+}
+
+const backStyles = {
+  fontSize: 20,
+  fontWeight: "bold",
+  listStyleType: "none",
+  display: "inline-block",
+  marginLeft: "0%",
+  fontFamily: "Roboto, Times New Roman, Times, serif",
+};
+
 const createLink = ({ text, to, ...rest }) => {
   const className = "nav-link";
   if (to) {
@@ -36,7 +54,7 @@ function NavLinks() {
     links.push({ text: "Login", to: "/login" });
   }
   return (
-    <ul className="navbar-nav">
+    <ul style={styles} className="navbar-nav">
       {links.map((link, i) => (
         <li key={i} className="nav-item">
           {createLink(link)}
@@ -48,11 +66,9 @@ function NavLinks() {
 
 function Navbar() {
   return (
-    <nav className="navbar navbar-expand navbar-dark bg-primary">
-      <div className="container">
-        <Link className="navbar-brand" to="/">
-          {/* Parkify */}
-        </Link>
+    <nav style={active} className="navbar navbar-expand navbar-dark bg-secondary">
+      <div style={backStyles} className="container">
+        <Link className="navbar-brand" to="/"></Link>
         <NavLinks />
       </div>
     </nav>
