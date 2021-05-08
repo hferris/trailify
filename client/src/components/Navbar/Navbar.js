@@ -7,14 +7,16 @@ const styles = {
   width: "20vw",
   padding: "15px",
   fontFamily: "Arial",
-  
-  
- 
+
 };
 
 const backStyles = {
   fontSize: 20,
   fontWeight: "bold",
+  listStyleType: "none",
+  display: "inline-block",
+  marginLeft: "36%",
+  fontFamily: "Roboto, Times New Roman, Times, serif",
   
 };
 
@@ -68,10 +70,12 @@ function NavLinks() {
 
 function Navbar() {
   return (
-    <nav style={navStyles}className="navbar navbar-expand navbar-dark bg-dark green">
+    <nav
+      style={navStyles}
+      className="navbar navbar-expand navbar-dark bg-secondary"
+    >
       <div style={backStyles} className="container">
-        <Link className="navbar-brand" to="/">
-        </Link>
+        <Link className="navbar-brand" to="/"></Link>
         <NavLinks />
       </div>
     </nav>
