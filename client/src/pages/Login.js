@@ -1,22 +1,25 @@
 import React, { useState } from "react";
 import { Link, Redirect, useHistory } from "react-router-dom";
 import { useAuth } from "../utils/auth";
-import background from "../imgs/login.jpeg";
+import background from "../imgs/login.jpg";
+import "./Home/home.css";
+import "./styleHelper.css";
 
 const styles = {
-  height: "100vh",
-  width: "100vw",
+  height: "100%",
+  width: "100%",
   backgroundRepeat: "no-repeat",
   backgroundPosition: "center",
   backgroundSize: "cover",
-  marginRight: "auto",
-  marginLeft: "auto",
-  border: "1px",
   backgroundImage: `url(${background})`,
 };
 
-const whatstyles = {
-  width: "20vw",
+const titleStyles = {
+  marginTop: "5%",
+  marginBottom: "3%",
+  display: "inline-block",
+  fontSize: "1rem",
+  fontFamily: "Roboto, Times New Roman, Times, serif",
 };
 
 function Login() {
@@ -41,42 +44,44 @@ function Login() {
   };
 
   return (
-    <div style={styles} className="container">
-      <h1>Login</h1>
-      <form onSubmit={handleFormSubmit}>
-        <div className="form-group">
-          <label htmlFor="email">Email address:</label>
-          <input
-            className="form-control"
-            style={whatstyles}
-            placeholder="Email goes here..."
-            name="email"
-            type="email"
-            id="email"
-            value={email}
-            onChange={({ target }) => setEmail(target.value)}
-          />
-        </div>
-        <div className="form-group">
-          <label htmlFor="pwd">Password:</label>
-          <input
-            className="form-control"
-            style={whatstyles}
-            placeholder="Password goes here..."
-            name="password"
-            type="password"
-            id="pwd"
-            value={password}
-            onChange={({ target }) => setPassword(target.value)}
-          />
-        </div>
-        <button type="submit" className="btn btn-primary">
-          Submit
-        </button>
-      </form>
-      <p>
-        <Link to="/signup">Signup</Link>
-      </p>
+    <div style={styles} className="App">
+      <div style={titleStyles} className="form-box">
+        <h1>Login</h1>
+
+        <form onSubmit={handleFormSubmit}>
+          <div class="form-group">
+            <label htmlFor="email">Email address:</label>
+            <input
+              className="form-control"
+              placeholder="Email goes here..."
+              name="email"
+              type="email"
+              id="email"
+              value={email}
+              onChange={({ target }) => setEmail(target.value)}
+            />
+          </div>
+          <div className="form-group">
+            <label htmlFor="pwd">Password:</label>
+            <input
+              className="form-control"
+              placeholder="Password goes here..."
+              name="password"
+              type="password"
+              id="pwd"
+              value={password}
+              onChange={({ target }) => setPassword(target.value)}
+            />
+          </div>
+          <button type="submit" className="btn btn-primary">
+            Submit
+          </button>
+        </form>
+        <br></br>
+        <p class="signup-button">
+          <Link to="/signup">Signup</Link>
+        </p>
+      </div>
     </div>
   );
 }
