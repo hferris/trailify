@@ -9,7 +9,6 @@ import PARKAPI from "../utils/auth/trailAPI/trailAPI";
 import ParkInfo from "../components/ParkInfo";
 import Context from "../utils/Context";
 
-
 const styles = {
   width: "100vw",
   minHeight: "100vh",
@@ -32,7 +31,7 @@ const cardStyles = {
   backgroundColor: "#D3D3D3",
 };
 
-function Dashboard(props) {
+function Dashboard() {
   const [park, setPark] = useState({});
   const [weatherResponse, setWeatherResponse] = useState({});
   const [city, setCity] = useState("");
@@ -76,21 +75,20 @@ function Dashboard(props) {
     getPark();
   });
 
-  const saveInput = (event) => {
+  const saveInput = (data) => {
     console.log("save input button clicked");
-    event.preventDefault();
-    console.log("event", event)
     PARKAPI.handleSave({
-      name: "",
-      description: "",
-      directions: "",
-      image: ["park image"],
-      designation: "",
-      }).then(response => {
-        console.log("response:", response)
-      })
-      
+      name: data.name,
+      description: data.description,
+      directions: data.directions,
+      image: data.images[0].url,
+      designation: data.designation,
+    }).then((response) => {
+      console.log("response:", response);
+    });
   };
+
+
 
   return (
     <div style={styles}>
@@ -176,7 +174,7 @@ function Dashboard(props) {
                         type="submit"
                         onClick={(event) => {
                           console.log(event.target.value);
-                          saveInput(event);
+                          saveInput(obj);
                         }}
                       >
                         Save as Favorite
