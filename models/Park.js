@@ -9,6 +9,7 @@ const parkSchema = new Schema({
   directions: { type: String },
   image: { type: [String] },
   designation: { type: String },
+  alt: {type:String}
 });
 
 const Park = mongoose.model("Park", parkSchema);

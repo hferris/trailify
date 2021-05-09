@@ -70,6 +70,7 @@ function Dashboard() {
       directions: data.directions,
       image: data.images[0].url,
       designation: data.designation,
+      alt:data.images[0].altText
     }).then((response) => {
       console.log("response:", response);
     });

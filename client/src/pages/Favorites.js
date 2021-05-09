@@ -28,7 +28,7 @@ const cardStyles = {
 function Favorites() {
   const [park, setPark] = useState("");
   const [weatherResponse, setWeatherResponse] = useState({});
-  const [favoritePark, setFavoritePark] = useState({});
+  const [favoriteParks, setFavoriteParks] = useState([]);
 
 
   const getParkWeather = () => {
@@ -57,36 +57,39 @@ function Favorites() {
   React.useEffect(() => {
     PARKAPI.getParks().then(({ data }) => {
       console.log("favorites:", data);
+     setFavoriteParks(data)
     });
-  });
-  
+  },[]);
+
   return (
     <div style={styles}>
       
-      <div style={cardStyles} className="card">
+      {favoriteParks.map(favPark => {
+        return (
+          <div style={cardStyles} className="card">
         <img
-          // style={{ width: "400px", height: "400px" }}
-          // src={}
+           style={{ width: "400px", height: "400px" }}
+           src={favPark.image[0]}
           className="card-img-top"
-          // alt={}
+           alt={favPark.alt}
         />
         <div>
           <div className="card-body">
-            <h5 className="card-title"> {} </h5>
+            <h5 className="card-title"> {favPark.name} </h5>
             <p
               style={{ backgroundColor: "#D3D3D3" }}
               className="list-group-item"
             >
-              {}
+              {favPark.designation}
             </p>
-            <p className="card-text">Description: {}</p>
+            <p className="card-text">Description: {favPark.description}</p>
           </div>
           <ul className="list-group list-group-flush">
             <li
               style={{ backgroundColor: "#D3D3D3" }}
               className="list-group-item"
             >
-              Directions: {}
+              Directions: {favPark.directions}
             </li>
             <li
               style={{ backgroundColor: "#D3D3D3" }}
@@ -95,9 +98,11 @@ function Favorites() {
               <button
                 className="btn btn-outline-success"
                 type="submit"
+                value={favPark.name}
                 onClick={(event) => {
                   console.log(event.target.value);
                   onSubmit(event);
+                  provideData(event)
                 }}
               >
                 Check the weather forecast for this park!
@@ -106,6 +111,10 @@ function Favorites() {
           </ul>
         </div>
       </div>
+        )
+      })}
+
+      
       <div>
         {weatherResponse.list
           ? weatherResponse.list.map((weatherItem, idx) => {
