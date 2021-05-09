@@ -148,8 +148,7 @@ function Dashboard() {
                     <h5 className="card-title"> {obj.name} </h5>
                     <p
                       style={{ backgroundColor: "#D3D3D3" }}
-                      className="list-group-item"
-                    >
+                      className="list-group-item">
                       {obj.designation}
                     </p>
 
