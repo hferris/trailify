@@ -1,15 +1,16 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { useAuth } from "../../utils/auth";
+import { GiForest } from "react-icons/gi";
 
 const styles = {
   height: "10vh",
   width: "20vw",
 };
 
-const active= {
-background: "linear-gradient(135deg, #4D6241 50%, blue",
-}
+const active = {
+  background: "linear-gradient(135deg, #4D6241 50%, blue",
+};
 
 const backStyles = {
   fontSize: 20,
@@ -66,10 +67,17 @@ function NavLinks() {
 
 function Navbar() {
   return (
-    <nav style={active} className="navbar navbar-expand navbar-dark bg-secondary">
+    <nav
+      style={active}
+      className="navbar navbar-expand navbar-dark bg-secondary"
+    >
+      
       <div style={backStyles} className="container">
         <Link className="navbar-brand" to="/"></Link>
         <NavLinks />
+      </div>
+      <div>
+        <GiForest color= "green" size= "8rem"/>
       </div>
     </nav>
   );
