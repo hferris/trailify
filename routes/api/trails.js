@@ -5,8 +5,7 @@ const parkController = require("../../controllers/parkController");
 router
   .route("/api/parks")
   .get(parkController.findAll)
-  .post(parkController.create)
-  router.route("/api/parks/:id")
-  .delete(parkController.delete)
+  .post(parkController.create);
+router.route("/api/parks/:id").delete(parkController.delete);
 
 module.exports = router;

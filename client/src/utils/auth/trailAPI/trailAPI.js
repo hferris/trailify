@@ -21,7 +21,7 @@ export default {
   // Saves a park to the database
   handleSave: function (parkToSave) {
     return axios.post("/api/parks/", parkToSave, {
-      authorization: getAuthToken()
+      authorization: getAuthToken(),
     });
   },
   // Deletes the park with the given id
@@ -29,10 +29,8 @@ export default {
     return axios.delete("/api/parks/" + id);
   },
   getParks() {
-    return axios.get('/api/parks',{
-      authorization: getAuthToken()
+    return axios.get("/api/parks", {
+      authorization: getAuthToken(),
     });
   },
 };
-
-
