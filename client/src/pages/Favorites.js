@@ -121,7 +121,7 @@ function Favorites() {
               if (idx % 8 === 4) {
                 return (
                   // forecast card
-                  <div key={idx}>
+                  <div key={idx} style = {cardStyles}>
                     <p>Date: {weatherResponse?.list[idx]?.dt_txt}</p>
                     <p>
                       Temperature: {weatherResponse?.list[idx]?.main?.temp} F
