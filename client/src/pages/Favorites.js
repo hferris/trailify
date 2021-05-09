@@ -28,8 +28,10 @@ const cardStyles = {
 function Favorites() {
   const [park, setPark] = useState("");
   const [weatherResponse, setWeatherResponse] = useState({});
-  const [favoritePark, setFavoritePark] = useState({});
-  const getCityWeather = () => {
+  const [favoriteParks, setFavoriteParks] = useState([]);
+
+
+  const getParkWeather = () => {
     const weatherURL = `http://api.openweathermap.org/data/2.5/forecast?q=${park}&units=imperial&APPID=${api_key}`;
     fetch(weatherURL)
       .then((res) => res.json())
@@ -39,30 +41,87 @@ function Favorites() {
       });
   };
   //   still need to figure out how the weatherurl will recieve it's data
-  //   const handleInputChange = (event) => {
-  //     const val = event.target.value;
-  //     setPark(val);
-  //     console.log("park:", park);
-  //   };
-  const handleSubmit = useCallback((event) => {
+    const provideData = (event) => {
+      const val = event.target.value;
+      setPark(val);
+      console.log("park data:", park);
+    };
+
+  const onSubmit = useCallback((event) => {
     event.preventDefault();
     console.log("park:", park);
-    getCityWeather();
+    getParkWeather();
   });
+
+
   React.useEffect(() => {
     PARKAPI.getParks().then(({ data }) => {
       console.log("favorites:", data);
+     setFavoriteParks(data)
     });
-  });
+  },[]);
+
   return (
     <div style={styles}>
+      
+      {favoriteParks.map(favPark => {
+        return (
+          <div style={cardStyles} className="card">
+        <img
+           style={{ width: "400px", height: "400px" }}
+           src={favPark.image[0]}
+          className="card-img-top"
+           alt={favPark.alt}
+        />
+        <div>
+          <div className="card-body">
+            <h5 className="card-title"> {favPark.name} </h5>
+            <p
+              style={{ backgroundColor: "#D3D3D3" }}
+              className="list-group-item"
+            >
+              {favPark.designation}
+            </p>
+            <p className="card-text">Description: {favPark.description}</p>
+          </div>
+          <ul className="list-group list-group-flush">
+            <li
+              style={{ backgroundColor: "#D3D3D3" }}
+              className="list-group-item"
+            >
+              Directions: {favPark.directions}
+            </li>
+            <li
+              style={{ backgroundColor: "#D3D3D3" }}
+              className="list-group-item"
+            >
+              <button
+                className="btn btn-outline-success"
+                type="submit"
+                value={favPark.name}
+                onClick={(event) => {
+                  console.log(event.target.value);
+                  onSubmit(event);
+                  provideData(event)
+                }}
+              >
+                Check the weather forecast for this park!
+              </button>
+            </li>
+          </ul>
+        </div>
+      </div>
+        )
+      })}
+
+      
       <div>
         {weatherResponse.list
           ? weatherResponse.list.map((weatherItem, idx) => {
               if (idx % 8 === 4) {
                 return (
                   // forecast card
-                  <div key={idx}>
+                  <div key={idx} style = {cardStyles}>
                     <p>Date: {weatherResponse?.list[idx]?.dt_txt}</p>
                     <p>
                       Temperature: {weatherResponse?.list[idx]?.main?.temp} F
@@ -76,50 +135,8 @@ function Favorites() {
             })
           : ""}
       </div>
-      <div style={cardStyles} className="card">
-        <img
-          // style={{ width: "400px", height: "400px" }}
-          // src={}
-          className="card-img-top"
-          // alt={}
-        />
-        <div>
-          <div className="card-body">
-            <h5 className="card-title"> {} </h5>
-            <p
-              style={{ backgroundColor: "#D3D3D3" }}
-              className="list-group-item"
-            >
-              {}
-            </p>
-            <p className="card-text">Description: {}</p>
-          </div>
-          <ul className="list-group list-group-flush">
-            <li
-              style={{ backgroundColor: "#D3D3D3" }}
-              className="list-group-item"
-            >
-              Directions: {}
-            </li>
-            <li
-              style={{ backgroundColor: "#D3D3D3" }}
-              className="list-group-item"
-            >
-              <button
-                className="btn btn-outline-success"
-                type="submit"
-                onClick={(event) => {
-                  console.log(event.target.value);
-                  handleSubmit(event);
-                }}
-              >
-                Check the weather forecast for this park!
-              </button>
-            </li>
-          </ul>
-        </div>
-      </div>
     </div>
+    
   );
 }
 export default Favorites;

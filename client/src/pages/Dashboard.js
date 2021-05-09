@@ -67,9 +67,10 @@ function Dashboard() {
     PARKAPI.handleSave({
       name: data.name,
       description: data.description,
-      directions: data.directions,
+      directions: data.directionsInfo,
       image: data.images[0].url,
       designation: data.designation,
+      alt:data.images[0].altText
     }).then((response) => {
       console.log("response:", response);
     });
