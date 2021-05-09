@@ -29,7 +29,9 @@ function Favorites() {
   const [park, setPark] = useState("");
   const [weatherResponse, setWeatherResponse] = useState({});
   const [favoritePark, setFavoritePark] = useState({});
-  const getCityWeather = () => {
+
+
+  const getParkWeather = () => {
     const weatherURL = `http://api.openweathermap.org/data/2.5/forecast?q=${park}&units=imperial&APPID=${api_key}`;
     fetch(weatherURL)
       .then((res) => res.json())
@@ -39,43 +41,28 @@ function Favorites() {
       });
   };
   //   still need to figure out how the weatherurl will recieve it's data
-  //   const handleInputChange = (event) => {
-  //     const val = event.target.value;
-  //     setPark(val);
-  //     console.log("park:", park);
-  //   };
-  const handleSubmit = useCallback((event) => {
+    const provideData = (event) => {
+      const val = event.target.value;
+      setPark(val);
+      console.log("park data:", park);
+    };
+
+  const onSubmit = useCallback((event) => {
     event.preventDefault();
     console.log("park:", park);
-    getCityWeather();
+    getParkWeather();
   });
+
+
   React.useEffect(() => {
     PARKAPI.getParks().then(({ data }) => {
       console.log("favorites:", data);
     });
   });
+  
   return (
     <div style={styles}>
-      <div>
-        {weatherResponse.list
-          ? weatherResponse.list.map((weatherItem, idx) => {
-              if (idx % 8 === 4) {
-                return (
-                  // forecast card
-                  <div key={idx}>
-                    <p>Date: {weatherResponse?.list[idx]?.dt_txt}</p>
-                    <p>
-                      Temperature: {weatherResponse?.list[idx]?.main?.temp} F
-                    </p>
-                    <p>
-                      Humidity: {weatherResponse?.list[idx]?.main?.humidity}%
-                    </p>
-                  </div>
-                );
-              }
-            })
-          : ""}
-      </div>
+      
       <div style={cardStyles} className="card">
         <img
           // style={{ width: "400px", height: "400px" }}
@@ -110,7 +97,7 @@ function Favorites() {
                 type="submit"
                 onClick={(event) => {
                   console.log(event.target.value);
-                  handleSubmit(event);
+                  onSubmit(event);
                 }}
               >
                 Check the weather forecast for this park!
@@ -119,7 +106,28 @@ function Favorites() {
           </ul>
         </div>
       </div>
+      <div>
+        {weatherResponse.list
+          ? weatherResponse.list.map((weatherItem, idx) => {
+              if (idx % 8 === 4) {
+                return (
+                  // forecast card
+                  <div key={idx}>
+                    <p>Date: {weatherResponse?.list[idx]?.dt_txt}</p>
+                    <p>
+                      Temperature: {weatherResponse?.list[idx]?.main?.temp} F
+                    </p>
+                    <p>
+                      Humidity: {weatherResponse?.list[idx]?.main?.humidity}%
+                    </p>
+                  </div>
+                );
+              }
+            })
+          : ""}
+      </div>
     </div>
+    
   );
 }
 export default Favorites;
