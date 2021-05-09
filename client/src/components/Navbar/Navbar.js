@@ -9,7 +9,7 @@ const styles = {
 };
 
 const active = {
-  background: "linear-gradient(135deg, #4D6241 50%, blue",
+  background: "linear-gradient(135deg, #4D6241 40%, blue",
 };
 
 const backStyles = {
