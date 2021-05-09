@@ -30,23 +30,17 @@ function App() {
               <Signup />
             </Route>
 
-           
             <ProtectedRoute exact path="/Favorites">
               <ParkInfo component="favorites" />
             </ProtectedRoute>
             <ProtectedRoute exact path="/Dashboard">
-              <Dashboard component="dashboard"/>
+              <Dashboard component="dashboard" />
             </ProtectedRoute>
-           
           </Switch>
         </div>
       </Router>
     </AuthProvider>
   );
-  
 }
 
-
 export default App;
-
-

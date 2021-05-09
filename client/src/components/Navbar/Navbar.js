@@ -71,13 +71,12 @@ function Navbar() {
       style={active}
       className="navbar navbar-expand navbar-dark bg-secondary"
     >
-      
       <div style={backStyles} className="container">
         <Link className="navbar-brand" to="/"></Link>
         <NavLinks />
       </div>
       <div>
-        <GiForest color= "green" size= "8rem"/>
+        <GiForest color="green" size="8rem" />
       </div>
     </nav>
   );
