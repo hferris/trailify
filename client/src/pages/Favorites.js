@@ -98,7 +98,7 @@ function Favorites() {
               <button
                 className="btn btn-outline-success"
                 type="submit"
-                value={favPark.name}
+                value={favPark.city}
                 onClick={(event) => {
                   console.log(event.target.value);
                   onSubmit(event);
