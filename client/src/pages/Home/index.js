@@ -34,10 +34,13 @@ function Home() {
     <div style={styles} className="App">
       <div style={titleStyles} className="App-header">
         <h1>Welcome to Parkify</h1>
-        <h5>!You deserve to live a great life!</h5>
         <h6>
-          To get started please create an account or sign in if you have already
-          been registered.
+          To find a national park you desire to explore by the state of your
+          choice please click on the dashboard.
+          <h6>
+            After exploring you can list your favorites to refer back to later
+            on by clicking the favorites tab.
+          </h6>
         </h6>
       </div>
       <p className="App-intro">
