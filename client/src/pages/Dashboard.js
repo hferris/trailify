@@ -32,8 +32,6 @@ const cardStyles = {
 };
 
 function Dashboard() {
-  const [park, setPark] = useState({});
-  const [weatherResponse, setWeatherResponse] = useState({});
   const [city, setCity] = useState("");
   const { user } = useAuth();
   const [test, setTest] = useState({ data: [] });
@@ -51,17 +49,6 @@ function Dashboard() {
       });
   };
 
-  const getCityWeather = () => {
-    const weatherURL = `http://api.openweathermap.org/data/2.5/forecast?q=${city}&units=imperial&APPID=${api_key}`;
-
-    fetch(weatherURL)
-      .then((res) => res.json())
-      .then((data) => {
-        console.log("weather:", data);
-        setWeatherResponse(data);
-      });
-  };
-
   const handleInputChange = (event) => {
     const val = event.target.value;
     setCity(val);
@@ -71,7 +58,7 @@ function Dashboard() {
   const handleSubmit = useCallback((event) => {
     event.preventDefault();
     console.log("city:", city);
-    getCityWeather();
+
     getPark();
   });
 
@@ -87,8 +74,6 @@ function Dashboard() {
       console.log("response:", response);
     });
   };
-
-
 
   return (
     <div style={styles}>
@@ -117,21 +102,6 @@ function Dashboard() {
         </button>
       </div>
 
-      {weatherResponse.list
-        ? weatherResponse.list.map((weatherItem, idx) => {
-            if (idx % 8 === 4) {
-              return (
-                // forecast card
-                <div key={idx}>
-                  <p>Date: {weatherResponse?.list[idx]?.dt_txt}</p>
-                  <p>Temperature: {weatherResponse?.list[idx]?.main?.temp} F</p>
-                  <p>Humidity: {weatherResponse?.list[idx]?.main?.humidity}%</p>
-                </div>
-              );
-            }
-          })
-        : ""}
-
       {test.data
         ? test.data.map((obj) => {
             return (
@@ -148,7 +118,8 @@ function Dashboard() {
                     <h5 className="card-title"> {obj.name} </h5>
                     <p
                       style={{ backgroundColor: "#D3D3D3" }}
-                      className="list-group-item">
+                      className="list-group-item"
+                    >
                       {obj.designation}
                     </p>
 
