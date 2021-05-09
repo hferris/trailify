@@ -14,9 +14,7 @@ module.exports = {
   findAll: function (req, res) {
     const userData = decodeToken(req);
     db.Park.find({
-      where: {
-        user_id: userData.id,
-      },
+      user_id: userData.id,
     })
       // .sort({ name })
       .then((dbModel) => res.json(dbModel))
@@ -29,7 +27,6 @@ module.exports = {
     const parkToSave = {
       ...req.body,
       user_id: userData.id,
-      
     };
     console.log("park to save", parkToSave);
     db.Park.create(parkToSave)
