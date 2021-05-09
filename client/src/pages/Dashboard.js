@@ -70,8 +70,8 @@ function Dashboard() {
       directions: data.directionsInfo,
       image: data.images[0].url,
       designation: data.designation,
-      alt:data.images[0].altText,
-      city: data.addresses[0].city
+      alt: data.images[0].altText,
+      city: data.addresses[0].city,
     }).then((response) => {
       console.log("response:", response);
     });

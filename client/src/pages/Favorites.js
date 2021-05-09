@@ -3,7 +3,7 @@ import background from "../imgs/fav.jpeg";
 import PARKAPI from "../utils/auth/trailAPI/trailAPI";
 import { api_key } from "../api.json";
 import axios from "axios";
-import savedFavorites from "./Dashboard";
+
 const styles = {
   minHeight: "100vh",
   width: "100vw",
