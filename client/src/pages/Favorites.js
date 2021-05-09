@@ -64,7 +64,7 @@ function Favorites() {
   });
 
   return (
-      <div>
+      <div style = {styles}>
           
           <div>
               {weatherResponse.list
