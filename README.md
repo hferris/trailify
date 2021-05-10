@@ -9,8 +9,7 @@
 
 <img src="https://img.shields.io/badge/License-IPL%201.0-blue.svg"></img>
 
-# Link to Application
-Heroku link here...
+# Link to Application: https://park-ify.herokuapp.com/
 
 # User Story:
 As a user:
@@ -29,8 +28,10 @@ This is an application that provides users different types of national parks in 
 We believe nature is loved by most people. Now the covid vaccine is out, people are more comfortable with being out and about, and summer coming up, this app can be very useful. outdoor activities are used during the summer for people to stay fit and active. This application will make life easier for many people to be able to find that perfect spot, weather, and save the parks that they loved most for their next visit.
 
 # Task Breakdown
-Brad:
-Hanna:
+Brad: BackEnd dashboard and favorites rendering, API
+
+Hanna: Application design (CSS),ReadMe, Presentation
+
 
 ## Table of Content
 
