@@ -52,7 +52,7 @@ Hanna:
 ![Alt text](/./client/imgs/wireframe3.png?raw=true "Screenshot")
 
 ## Features
-
+React, CSS, API, MongoDB,  Express, New Tech:  React Icon,  Protected Route 
 
 ## License
 IBM
@@ -61,5 +61,5 @@ IBM
 Please don't hesitate to contribute to our project, the more work, the better application.
 
 ## Questions
- If you have any questions about the repo, please contact us directly at jackmccauley32@gmail.com, brt.jst@gmail.com, and hferris@dbq.edu or find us on github at https://github.com/jackmccauley32, https://github.com/bradfan, and https://github.com/hferris.
+ If you have any questions about the repo, please contact us directly at brt.jst@gmail.com and hferris@dbq.edu or find us on github at https://github.com/bradfan and https://github.com/hferris.
  
